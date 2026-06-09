@@ -92,7 +92,7 @@ const Navbar = () => {
                         </Link>
 
                         <div className="hidden lg:flex items-center space-x-8 text-md">
-                            <Link href="#" className="relative hover:text-brandColor transition-colors duration-300 before:content-['•'] before:absolute before:-left-3.5 before:top-[45%] before:-translate-y-1/2 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:text-brandColor">Hosting</Link>
+                            <Link href="/hosting" className="relative hover:text-brandColor transition-colors duration-300 before:content-['•'] before:absolute before:-left-3.5 before:top-[45%] before:-translate-y-1/2 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:text-brandColor">Hosting</Link>
                             <Link href="#" className="relative hover:text-brandColor transition-colors duration-300 before:content-['•'] before:absolute before:-left-3.5 before:top-[45%] before:-translate-y-1/2 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:text-brandColor">VPS</Link>
                             <Link href="#" className="relative hover:text-brandColor transition-colors duration-300 before:content-['•'] before:absolute before:-left-3.5 before:top-[45%] before:-translate-y-1/2 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:text-brandColor">Domain</Link>
                             <Link href="#" className="relative hover:text-brandColor transition-colors duration-300 before:content-['•'] before:absolute before:-left-3.5 before:top-[45%] before:-translate-y-1/2 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:text-brandColor">Pricing</Link>
@@ -151,7 +151,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex flex-col space-y-2 text-[15px] font-medium text-slate-700 overflow-y-auto pb-6">
-                        <Link href="#" className="hover:text-brandColor transition-colors py-3 border-b border-slate-100">Hosting</Link>
+                        <Link href="/hosting" className="hover:text-brandColor transition-colors py-3 border-b border-slate-100">Hosting</Link>
                         <Link href="#" className="hover:text-brandColor transition-colors py-3 border-b border-slate-100">VPS</Link>
                         <Link href="#" className="hover:text-brandColor transition-colors py-3 border-b border-slate-100">Domain</Link>
                         <Link href="#" className="hover:text-brandColor transition-colors py-3 border-b border-slate-100">Pricing</Link>

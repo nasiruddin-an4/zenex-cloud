@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={dmSans.variable}>
-      <body>
+      <body className="font-sans antialiased text-slate-900">
         <Navbar />
         <main className="">{children}</main>
         <Footer />

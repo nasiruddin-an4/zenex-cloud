@@ -7,6 +7,7 @@ import Solutions from "./components/Solutions";
 import GPUServers from "./components/GPUServers";
 import Migration from "./components/Migration";
 import CTA from "./components/CTA";
+import FAQ from "./components/FAQ";
 import Image from "next/image";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <Solutions />
       <GPUServers />
       <Migration />
+      <FAQ />
       <CTA />
     </div>
   );
