@@ -19,27 +19,10 @@ const statsData = [
 
 const TrustedBy = () => {
     return (
-        <section className="w-full bg-slate-900 py-20 relative z-10 overflow-hidden">
+        <section className="w-full bg-slate-900 py-10 relative z-10 overflow-hidden">
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
 
-                {/* Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-0 mb-14 px-4 text-white">
-                    {statsData.map((stat, index) => (
-                        <div 
-                            key={stat.id} 
-                            className={`text-center px-2 sm:px-4 md:px-12 border-white/20 ${
-                                index !== 0 ? 'md:border-l' : ''
-                            } ${
-                                index % 2 !== 0 ? 'border-l' : ''
-                            }`}
-                        >
-                            <h3 className={`text-4xl md:text-[40px] ${stat.weightClass} mb-2`}>
-                                {stat.value}
-                            </h3>
-                            <p className="text-sm text-gray-400">{stat.label}</p>
-                        </div>
-                    ))}
-                </div>
+
 
                 <p className="text-center text-gray-400 text-xl mb-6 font-normal tracking-normal">
                     Trusted by <span className="text-white">startups</span>, <span className="text-white">enterprises</span>, and <span className="text-white">global teams</span> to build scalable systems

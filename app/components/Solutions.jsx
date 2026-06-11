@@ -7,6 +7,7 @@ import { Code, Store, LayoutDashboard, Building2, Check, ArrowRight } from 'luci
 const solutionsData = [
     {
         id: "developers",
+        tabLabel: "Developer",
         title: "Developers",
         icon: Code,
         description: "Deploy applications with full root access, SSH connectivity, Git workflows, Docker support, and developer-friendly infrastructure.",
@@ -17,7 +18,8 @@ const solutionsData = [
     },
     {
         id: "ecommerce",
-        title: "E-Commerce",
+        tabLabel: "Ecommerce",
+        title: "Ecommerce",
         icon: Store,
         description: "Build and scale your online store with high-performance infrastructure, built-in security, and seamless caching for fast checkouts.",
         features: ["WooCommerce Ready", "Magento Optimized", "Free SSL Certificates", "DDoS Protection"],
@@ -27,8 +29,9 @@ const solutionsData = [
     },
     {
         id: "wordpress",
-        title: "WordPress",
-        icon: LayoutDashboard, // WordPress logo could be custom SVG, using LayoutDashboard as fallback
+        tabLabel: "Online Stores",
+        title: "Online Stores",
+        icon: LayoutDashboard,
         description: "Launch lightning-fast WordPress sites with one-click installation, automated updates, and server-level caching configured out of the box.",
         features: ["1-Click Install", "Automated Backups", "LiteSpeed Cache", "Staging Environment"],
         linkText: "Explore WordPress Hosting",
@@ -37,6 +40,7 @@ const solutionsData = [
     },
     {
         id: "enterprise",
+        tabLabel: "Enterprise",
         title: "Enterprise",
         icon: Building2,
         description: "Custom-architected infrastructure designed for high availability, compliance, and massive scalability to support your mission-critical workloads.",
@@ -48,8 +52,6 @@ const solutionsData = [
 ];
 
 const Solutions = () => {
-    // Note: We'll just hardcode the first one as active for now to match the design perfectly,
-    // but this state is ready if you want to make it fully interactive!
     const [activeTab, setActiveTab] = useState("developers");
 
     return (
@@ -57,109 +59,93 @@ const Solutions = () => {
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
 
                 {/* Header Section */}
-                <div className="flex flex-col lg:flex-row justify-between items-start mb-16 gap-8">
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 max-w-lg leading-tight">
+                <div className="flex flex-col lg:flex-row justify-between items-center mb-10 gap-4">
+                    <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-bold tracking-tight text-slate-900 2xl:max-w-lg leading-[1.1]">
                         Solutions Tailored To How You Build
                     </h2>
-                    <p className="text-slate-800 font-medium text-[15px] lg:text-base max-w-lg leading-relaxed lg:mt-4">
-                        Whether you're launching your first website, scaling an online store, managing client projects, or running enterprise workloads, ZenexCloud provides infrastructure designed for your specific needs.
-                    </p>
-                </div>
 
-                {/* Main Content Grid */}
-                <div className="flex flex-col lg:flex-row gap-6 relative">
-
-                    {/* Left Column: Tabs */}
-                    <div className="w-full lg:w-[380px] shrink-0 flex flex-col space-y-3 relative z-20">
+                    {/* Tabs */}
+                    <div className="flex flex-wrap items-center gap-2 lg:gap-3">
                         {solutionsData.map((solution) => {
                             const isActive = activeTab === solution.id;
-
-                            if (isActive) {
-                                // Active Card
-                                return (
-                                    <div key={solution.id} className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col relative">
-                                        <div className="flex items-center gap-3 mb-4">
-                                            <div className="w-10 h-10 rounded-lg bg-[#EAF5FA] flex items-center justify-center text-[#023B5A]">
-                                                <solution.icon className="w-5 h-5 stroke-[2]" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-slate-900">{solution.title}</h3>
-                                        </div>
-
-                                        {solution.description && (
-                                            <p className="text-slate-700 text-sm leading-relaxed mb-6 font-medium">
-                                                {solution.description}
-                                            </p>
-                                        )}
-
-                                        {solution.features && solution.features.length > 0 && (
-                                            <ul className="space-y-4 mb-6">
-                                                {solution.features.map((feature, idx) => (
-                                                    <li key={idx} className="flex items-center gap-3 border-b border-slate-100 pb-3 last:border-0 last:pb-0">
-                                                        <div className="w-[18px] h-[18px] rounded flex items-center justify-center bg-[#023B5A] shrink-0">
-                                                            <Check className="w-3 h-3 text-white" strokeWidth={4} />
-                                                        </div>
-                                                        <span className="text-sm font-medium text-slate-800">{feature}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-
-                                        {solution.linkText && (
-                                            <Link
-                                                href={solution.link || "#"}
-                                                className="text-sm font-bold text-[#023B5A] flex items-center gap-1.5 hover:text-[#009DD9] transition-colors group/link mt-auto"
-                                            >
-                                                {solution.linkText}
-                                                <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
-                                            </Link>
-                                        )}
-
-
-                                    </div>
-                                );
-                            }
-
-                            // Inactive Cards
                             return (
                                 <button
                                     key={solution.id}
                                     onClick={() => setActiveTab(solution.id)}
-                                    className="w-full bg-white rounded-xl border border-slate-200 p-4 flex items-center justify-between hover:border-[#009DD9] transition-colors group"
+                                    className={`group flex items-center gap-2 px-5 py-2 rounded-full text-[13px] font-semibold transition-all duration-300 border ${isActive
+                                        ? 'bg-[#005B82] text-white border-[#005B82]'
+                                        : 'bg-transparent text-slate-600 border-[#C1D6E2] hover:border-[#005B82] hover:text-[#005B82]'
+                                        }`}
                                 >
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded bg-slate-50 flex items-center justify-center text-slate-500 group-hover:text-[#009DD9] transition-colors">
-                                            <solution.icon className="w-4 h-4 stroke-[2]" />
-                                        </div>
-                                        <h3 className="text-[17px] font-bold text-slate-900">{solution.title}</h3>
-                                    </div>
-                                    <ArrowRight className="w-4 h-4 text-[#8AD9F8] group-hover:text-[#009DD9] group-hover:translate-x-1 transition-all" />
+                                    <solution.icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500 group-hover:text-[#005B82]'}`} />
+                                    {solution.tabLabel}
                                 </button>
                             );
                         })}
                     </div>
+                </div>
 
-                    {/* Right Column: Graphic */}
-                    <div className="w-full flex-grow relative min-h-[400px] lg:min-h-0 bg-white rounded-2xl shadow-sm border border-slate-200 p-3 lg:p-4 overflow-hidden z-10">
-                        <div className="w-full h-full rounded-xl bg-[#021A26] overflow-hidden relative flex items-center justify-center">
+                {/* Main Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative">
 
-                            {/* Active Image Layering */}
-                            <div className="absolute inset-0 z-10 bg-slate-200">
-                                {solutionsData.map((solution) => (
-                                    <div
-                                        key={solution.id}
-                                        className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${activeTab === solution.id ? 'opacity-100 z-20' : 'opacity-0 z-10'
-                                            }`}
-                                    >
-                                        <Image
-                                            src={solution.imageSrc}
-                                            alt={solution.title}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                ))}
+                    {/* Left Column: Graphic */}
+                    <div className="w-full relative min-h-[300px] lg:min-h-[480px] rounded-2xl overflow-hidden shadow-sm">
+                        {solutionsData.map((solution) => (
+                            <div
+                                key={solution.id}
+                                className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${activeTab === solution.id ? 'opacity-100 z-20' : 'opacity-0 z-10'
+                                    }`}
+                            >
+                                <Image
+                                    src={solution.imageSrc}
+                                    alt={solution.title}
+                                    fill
+                                    className="object-cover"
+                                />
                             </div>
-                        </div>
+                        ))}
+                    </div>
+
+                    {/* Right Column: Content */}
+                    <div className="w-full flex flex-col relative z-20 pl-0 lg:pl-6">
+                        {solutionsData.map((solution) => {
+                            const isActive = activeTab === solution.id;
+                            if (!isActive) return null;
+
+                            return (
+                                <div key={solution.id} className="flex flex-col animate-fadeIn">
+                                    <span className="inline-block px-2.5 py-1 rounded bg-[#DCECF5] text-[#009DD9] text-[10px] font-bold tracking-widest uppercase mb-5 w-max">
+                                        PERFORMANCE RESULT
+                                    </span>
+                                    <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">{solution.title}</h3>
+
+                                    <p className="text-slate-700 text-[15px] leading-relaxed mb-8 font-medium">
+                                        {solution.description}
+                                    </p>
+
+                                    <ul className="space-y-4 mb-10">
+                                        {solution.features.map((feature, idx) => (
+                                            <li key={idx} className="flex items-center gap-3 border-b border-[#D4E4EE] pb-4 last:border-0 last:pb-0">
+                                                <div className="w-[18px] h-[18px] rounded flex items-center justify-center bg-[#005B82] shrink-0">
+                                                    <Check className="w-3 h-3 text-white" strokeWidth={4} />
+                                                </div>
+                                                <span className="text-[14px] font-medium text-slate-800">{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <div>
+                                        <Link
+                                            href={solution.link || "#"}
+                                            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#A7C5D8] text-[13px] font-bold text-slate-700 hover:border-[#005B82] hover:text-[#005B82] transition-colors"
+                                        >
+                                            {solution.linkText}
+                                            <ArrowRight className="w-4 h-4" />
+                                        </Link>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
 
                 </div>

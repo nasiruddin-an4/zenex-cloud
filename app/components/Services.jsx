@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Globe, Server, Database, Cpu, Check, ArrowRight } from 'lucide-react';
+import { Globe, Server, Database, Cpu, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 
 const servicesData = [
     {
@@ -16,7 +17,7 @@ const servicesData = [
         ],
         link: "#",
         badge: null,
-        gradientClass: "bg-gradient-to-bl from-[#b5dbfc] via-white via-40% to-white"
+        image: "/image 34.png"
     },
     {
         id: "vps",
@@ -31,7 +32,7 @@ const servicesData = [
         ],
         link: "#",
         badge: null,
-        gradientClass: "bg-gradient-to-br from-[#b5dbfc] via-white via-40% to-white"
+        image: "/image 38.png"
     },
     {
         id: "s3",
@@ -46,7 +47,7 @@ const servicesData = [
         ],
         link: "#",
         badge: null,
-        gradientClass: "bg-gradient-to-tl from-[#b5dbfc] via-white via-40% to-white"
+        image: "/Frame 2085663933.png"
     },
     {
         id: "gpu",
@@ -61,84 +62,94 @@ const servicesData = [
         ],
         link: "#",
         badge: "Coming Soon",
-        gradientClass: "bg-gradient-to-tr from-[#b5dbfc] via-white via-40% to-white"
+        image: "/image 40.png"
     }
 ];
 
 const Services = () => {
     return (
-        <section className="w-full bg-[#EAF5FA] py-20 lg:py-28 font-sans text-slate-900">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-
+        <section className="w-full bg-white py-24 font-sans text-slate-900 relative z-10">
+            <div className="max-w-screen-2xl mx-auto px-6">
                 {/* Header Section */}
-                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-8">
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight max-w-md">
-                        Infrastructure and Cloud Services
-                    </h2>
-                    <p className="text-slate-800 font-medium text-sm md:text-base max-w-sm leading-relaxed">
-                        Reliable hosting, virtual servers, object storage, and AI-ready compute resources — all from a single platform.
-                    </p>
+                <div className="flex flex-col lg:flex-row justify-between items-start mb-24 gap-8">
+                    <div>
+                        <span className="inline-block px-3 py-1 rounded bg-[#EAF5FA] text-[#009DD9] text-[11px] font-bold tracking-widest uppercase mb-6">
+                            Services
+                        </span>
+                        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight text-slate-900 leading-[1.1]">
+                            Infrastructure and<br />Cloud Services
+                        </h2>
+                    </div>
+                    <div className="lg:max-w-md lg:pt-16">
+                        <p className="text-slate-700 font-semibold text-base md:text-lg leading-relaxed">
+                            Reliable hosting, virtual servers, object storage, and AI-ready compute resources — all from a single platform.
+                        </p>
+                    </div>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                    {servicesData.map((service) => (
-                        <div
+                {/* Cards List */}
+                <div className="flex flex-col w-full relative">
+                    {servicesData.map((service, index) => (
+                        <Link
+                            href={service.link}
                             key={service.id}
-                            className="relative w-full rounded-xl overflow-hidden bg-white shadow border border-slate-50 p-8 md:p-10 flex flex-col h-full group transition-shadow hover:shadow-lg"
+                            className="block sticky bg-white border-t border-slate-200 py-10 md:py-16 transition-all duration-300 group"
+                            style={{
+                                top: `calc(100px + ${index * 20}px)`,
+                                zIndex: index + 1
+                            }}
                         >
-                            {/* Dynamic Background Gradient */}
-                            <div className={`absolute inset-0 ${service.gradientClass} opacity-100 z-0 pointer-events-none`}></div>
-
-                            {/* Content */}
-                            <div className="relative z-10 flex-grow flex flex-col">
-                                {/* Icon and Title */}
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-10 h-10 rounded-lg bg-[#EAF5FA] flex items-center justify-center text-[#023B5A]">
-                                        <service.icon className="w-5 h-5 stroke-[2]" />
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">{service.title}</h3>
-                                        {service.badge && (
-                                            <span className="px-2.5 py-1 rounded bg-[#DDF1F8] text-[#023B5A] text-[11px] font-bold tracking-wide uppercase">
-                                                {service.badge}
-                                            </span>
-                                        )}
-                                    </div>
+                            <div className="flex flex-col md:flex-row gap-8 lg:gap-16 items-center transition-transform duration-300 group-hover:translate-x-2">
+                                {/* Left: Image */}
+                                <div className="w-full md:w-[30%] shrink-0 relative rounded-2xl overflow-hidden aspect-[4/2.5] bg-slate-100">
+                                    <Image
+                                        src={service.image}
+                                        alt={service.title}
+                                        fill
+                                        className="object-cover"
+                                    />
                                 </div>
 
-                                {/* Description */}
-                                <p className="text-slate-800 text-[15px] leading-relaxed mb-10 font-medium">
-                                    {service.description}
-                                </p>
+                                {/* Right: Content */}
+                                <div className="w-full md:w-[55%] flex flex-col justify-center relative h-full">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-10 h-10 rounded-full bg-[#EAF5FA] flex items-center justify-center text-brandColor">
+                                                <service.icon className="w-5 h-5" />
+                                            </div>
+                                            <div className="flex items-center gap-3">
+                                                <h3 className="text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">{service.title}</h3>
+                                                {service.badge && (
+                                                    <span className="px-2.5 py-1 rounded bg-[#6B859E] text-white text-[11px] font-bold tracking-wide uppercase">
+                                                        {service.badge}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
+                                        <div className="text-[#009DD9] transition-all duration-300 p-2 group-hover:-translate-y-1.5 group-hover:text-[#023B5A]">
+                                            <ArrowUpRight className="w-7 h-7 stroke-[2]" />
+                                        </div>
+                                    </div>
 
-                                {/* Spacer to push features and link to bottom */}
-                                <div className="mt-auto">
-                                    {/* Features List */}
-                                    <ul className="space-y-4 mb-8">
-                                        {service.features.map((feature, idx) => (
-                                            <li key={idx} className="flex items-center gap-3 border-b border-slate-100 pb-4 last:border-0 last:pb-0">
-                                                <div className="w-[18px] h-[18px] rounded flex items-center justify-center bg-[#023B5A] shrink-0">
-                                                    <Check className="w-3 h-3 text-white" strokeWidth={4} />
-                                                </div>
-                                                <span className="text-[15px] font-medium text-slate-800">{feature}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <p className="text-slate-800 font-medium text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
+                                        {service.description}
+                                    </p>
 
-                                    {/* Link */}
-                                    <div className="flex justify-end mt-4">
-                                        <Link
-                                            href={service.link}
-                                            className="text-sm font-bold text-[#023B5A] flex items-center gap-1.5 hover:text-[#009DD9] transition-colors group/link"
-                                        >
-                                            Explore Plans
-                                            <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
-                                        </Link>
+                                    <div className="flex justify-between items-end mt-auto">
+                                        <div className="flex flex-wrap gap-3 max-w-[85%]">
+                                            {service.features.map((feature, idx) => (
+                                                <span key={idx} className="bg-slate-100 text-slate-600 px-4 py-1.5 rounded-full text-[13px] font-semibold whitespace-nowrap">
+                                                    {feature}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <div className="text-slate-300 font-medium text-base mb-1.5">
+                                            0{index + 1}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 
