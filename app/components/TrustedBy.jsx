@@ -19,7 +19,7 @@ const statsData = [
 
 const TrustedBy = () => {
     return (
-        <section className="w-full bg-slate-900 py-10 relative z-10 overflow-hidden">
+        <section className="w-full bg-black py-10 relative z-10 overflow-hidden">
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
 
 
@@ -34,10 +34,10 @@ const TrustedBy = () => {
                 {/* Logos Marquee Container */}
                 <div className="w-full relative overflow-hidden opacity-60 hover:opacity-100 transition-opacity duration-500 py-8">
                     {/* Left Fade Overlay */}
-                    <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
 
                     {/* Right Fade Overlay */}
-                    <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
                     {/* Inner Track */}
                     <div className="flex w-max animate-marquee items-center gap-16 pr-16 hover:[animation-play-state:paused]">

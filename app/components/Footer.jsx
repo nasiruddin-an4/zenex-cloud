@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-16">
 
                     {/* Top Section - Links Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-4">
                         {/* Hosting Column */}
                         <div>
                             <h3 className="font-semibold text-black text-lg mb-6">Hosting</h3>

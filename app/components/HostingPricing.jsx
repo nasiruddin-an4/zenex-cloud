@@ -69,7 +69,7 @@ const HostingPricing = () => {
             <div className="max-w-screen-2xl mx-auto">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight max-w-xl tracking-tight">
                         Choose The Right VPS<br />For Your Workload
                     </h2>
@@ -82,7 +82,7 @@ const HostingPricing = () => {
                 <div className="relative w-full rounded-xl overflow-hidden bg-gradient-to-b from-[#EBF5FB] via-[#D5EEF9] to-[#60CCFA] p-6 sm:p-10 md:p-14 mb-12">
 
                     {/* Toggle */}
-                    <div className="flex justify-center mb-12">
+                    <div className="flex justify-center mb-4">
                         <div className="bg-white p-1.5 rounded-full inline-flex items-center shadow-sm relative">
                             <button
                                 onClick={() => setIsYearly(false)}
@@ -156,17 +156,17 @@ const HostingPricing = () => {
                                     </div>
 
                                     {/* Action Button */}
-                                    <div className="mt-auto">
-                                        <button className={`w-full py-3.5 rounded-full font-medium flex items-center justify-center transition-all duration-300 text-[14px] ${isPop
-                                            ? 'bg-brandColor text-white hover:bg-[#008FCC] shadow-[0_4px_14px_0_rgba(0,157,217,0.39)]'
-                                            : 'bg-transparent text-slate-700 hover:text-brandColor group'
+                                    <div className="mt-auto w-full">
+                                        {!isPop && <div className="w-full h-px bg-slate-200 mb-3"></div>}
+                                        <button className={`py-3.5 rounded-full font-medium flex items-center transition-all duration-300 text-[14px] ${isPop
+                                            ? 'w-[80%] lg:w-[70%] mr-auto bg-brandColor text-white hover:bg-[#008FCC] shadow-[0_4px_14px_0_rgba(0,157,217,0.39)] justify-center'
+                                            : 'w-full bg-transparent text-slate-700 hover:text-brandColor group justify-start px-0'
                                             }`}>
                                             <span className="flex items-center">
                                                 {plan.buttonText}
                                                 <ArrowRight className={`w-4 h-4 ml-2 transition-transform duration-300 ${!isPop ? 'group-hover:translate-x-1' : ''}`} />
                                             </span>
                                         </button>
-                                        {!isPop && <div className="w-full h-px bg-slate-200 mt-2"></div>}
                                     </div>
 
                                 </div>

@@ -92,7 +92,7 @@ const GPUServers = () => {
     return (
         <section className="w-full bg-white py-20 lg:py-28 font-sans">
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-                
+
                 {/* Header Section */}
                 <div className="flex flex-col lg:flex-row justify-between items-start mb-16 gap-6 relative z-10">
                     <div className="flex flex-col">
@@ -103,7 +103,7 @@ const GPUServers = () => {
                         </div>
                         <h2 className="text-3xl md:text-[44px] font-extrabold tracking-tight text-slate-900 max-w-xl leading-[1.15]">
                             GPU Dedicated Servers<br />
-                            Built for <span className="text-brandColor">deep learning.</span>
+                            Built for <span className="text-brandColor">Deep Learning</span>
                         </h2>
                     </div>
                     <div className="max-w-md pt-0 lg:pt-12">
@@ -114,7 +114,7 @@ const GPUServers = () => {
                 </div>
 
                 {/* Cards Container */}
-                <div 
+                <div
                     className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
                     onMouseLeave={() => setHoveredId(null)}
                 >
@@ -125,11 +125,10 @@ const GPUServers = () => {
                             <div
                                 key={server.id}
                                 onMouseEnter={() => setHoveredId(server.id)}
-                                className={`relative flex flex-col p-6 lg:p-8 rounded-2xl transition-all duration-300 overflow-hidden group cursor-pointer ${
-                                    isActive 
-                                    ? 'bg-slate-900 border-2 border-brandColor shadow-[0_0_20px_rgba(0,157,217,0.3)]' 
+                                className={`relative flex flex-col p-6 lg:p-8 rounded-2xl transition-all duration-300 overflow-hidden group cursor-pointer ${isActive
+                                    ? 'bg-slate-900 border-2 border-brandColor shadow-[0_0_20px_rgba(0,157,217,0.3)]'
                                     : 'bg-slate-50 border border-slate-200 hover:border-brandColor/50 shadow-sm'
-                                }`}
+                                    }`}
                             >
                                 {/* Background Image for Active Card */}
                                 {isActive && server.imageSrc && (
@@ -148,18 +147,7 @@ const GPUServers = () => {
 
                                 {/* Card Content */}
                                 <div className="relative z-10 flex flex-col h-full">
-                                    {/* Top Icon & Badge */}
-                                    <div className="flex items-start justify-between mb-6">
-                                        <div className={`p-3 rounded-xl border transition-colors duration-300 ${isActive ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-200'}`}>
-                                            {server.icon}
-                                        </div>
-                                        {server.isPopular && (
-                                            <div className="inline-flex items-center space-x-1.5 bg-brandColor/20 text-brandColor text-[11px] font-bold px-2.5 py-1 rounded-sm">
-                                                <Star className="w-3 h-3 fill-current" />
-                                                <span>MOST POPULAR</span>
-                                            </div>
-                                        )}
-                                    </div>
+
 
                                     {/* Specs Top Badge */}
                                     <div className="mb-3">
@@ -195,11 +183,10 @@ const GPUServers = () => {
 
                                     {/* Action Button */}
                                     <div className="mt-auto pt-4">
-                                        <button className={`w-full py-3.5 rounded-xl font-medium flex items-center justify-center transition-all duration-300 ${
-                                            isActive
+                                        <button className={`w-full py-3.5 rounded-xl font-medium flex items-center justify-center transition-all duration-300 ${isActive
                                             ? 'bg-brandColor text-white hover:bg-[#008FCC] shadow-lg'
                                             : 'bg-transparent border border-slate-200 text-slate-700 hover:bg-slate-100'
-                                        }`}>
+                                            }`}>
                                             {server.buttonText}
                                             <ArrowRight className="w-4 h-4 ml-2" />
                                         </button>

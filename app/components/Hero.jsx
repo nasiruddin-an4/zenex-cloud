@@ -69,7 +69,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-brandBlack/40 via-transparent to-brandBlack/40 z-[1]"></div>
 
             {/* Hero Content */}
-            <div className="relative z-10 flex flex-col items-center text-center text-white pt-44 md:pt-52 pb-16 md:pb-20 px-4 sm:px-6">
+            <div className="relative z-10 flex flex-col items-center text-center text-white pt-36 md:pt-44 pb-16 md:pb-20 px-4 sm:px-6">
 
                 {/* NVMe Badge */}
                 <div className="inline-flex items-center space-x-2 bg-white/[0.06] border border-white/[0.12] rounded-full px-4 py-1.5 mb-8 backdrop-blur-md animate-fade-in-up">
