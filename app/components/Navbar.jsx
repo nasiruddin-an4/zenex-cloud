@@ -19,15 +19,7 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Prevent body scroll when mobile menu is open
-    useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => { document.body.style.overflow = ''; };
-    }, [isMobileMenuOpen]);
+    // Removed body scroll lock to prevent iOS Safari jump-to-top bug
 
     return (
         <>
@@ -109,51 +101,51 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Mobile Menu Overlay */}
-                <div
-                    className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] lg:hidden transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-                        }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                ></div>
+            </nav>
 
-                {/* Mobile Menu Drawer */}
-                <div
-                    className={`fixed top-0 right-0 h-[100dvh] w-[85%] max-w-[340px] bg-[#0a1e2e] z-[70] lg:hidden flex flex-col py-6 px-6 shadow-2xl transform transition-transform duration-300 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                        }`}
-                >
-                    {/* Drawer Header */}
-                    <div className="flex justify-between items-center mb-10">
-                        <Image src="/zenexcloudlogowhite.svg" alt="ZenexCloud" width={130} height={26} className="h-6 w-auto" />
-                        <button
-                            className="text-gray-400 hover:text-white focus:outline-none p-1.5 bg-white/5 rounded-full border border-white/10 transition-colors duration-200"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            aria-label="Close menu"
-                        >
-                            <X className="w-4 h-4" />
-                        </button>
-                    </div>
+            {/* Mobile Menu Overlay - Moved outside nav to escape stacking context */}
+            <div
+                className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] lg:hidden transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                    }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+            ></div>
 
-                    <div className="flex flex-col space-y-1 text-[15px] font-medium text-gray-300 overflow-y-auto pb-6 flex-1">
-                        {[
-                            { href: '/hosting', label: 'Hosting' },
-                            { href: '/vps', label: 'VPS' },
-                            { href: '/s3-bucket', label: 'S3 Bucket' },
-                            { href: '/pricing', label: 'Pricing' },
-                        ].map((link) => (
-                            <Link key={link.href} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className={`transition-all py-3 px-3 rounded-lg ${pathname === link.href ? 'text-white bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>
-                                {link.label}
-                            </Link>
-                        ))}
+            {/* Mobile Menu Drawer - Moved outside nav */}
+            <div
+                className={`fixed top-0 right-0 h-[100dvh] w-[85%] max-w-[340px] bg-[#0a1e2e] z-[100] lg:hidden flex flex-col py-6 px-6 shadow-2xl transform transition-transform duration-300 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}
+            >
+                {/* Drawer Header */}
+                <div className="flex justify-between items-center mb-10">
+                    <Image src="/zenexcloudlogowhite.svg" alt="ZenexCloud" width={130} height={26} className="h-6 w-auto" />
+                    <button
+                        className="text-gray-400 hover:text-white focus:outline-none p-1.5 bg-white/5 rounded-full border border-white/10 transition-colors duration-200"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        aria-label="Close menu"
+                    >
+                        <X className="w-4 h-4" />
+                    </button>
+                </div>
 
-                        <div className="!mt-8 pt-6 border-t border-white/10 space-y-3">
-                            <Link href="https://clients.zenexcloud.com/index.php?rp=/store/web-hosting/zenbasic&_gl=1*vytkqm*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIwMzc4MTckbzExJGcxJHQxNzgyMDM5ODY1JGoyNiRsMCRoMTc4OTE5MDYyNA.." className="bg-cyan-500 hover:bg-cyan-400 text-white rounded-full px-5 py-3 transition-all flex items-center justify-center w-full shadow-[0_0_20px_rgba(0,163,255,0.3)] font-semibold">
-                                Start Hosting <ArrowRight className="w-4 h-4 ml-1.5" />
-                            </Link>
+                <div className="flex flex-col space-y-1 text-[15px] font-medium text-gray-300 overflow-y-auto pb-6 flex-1">
+                    {[
+                        { href: '/hosting', label: 'Hosting' },
+                        { href: '/vps', label: 'VPS' },
+                        { href: '/s3-bucket', label: 'S3 Bucket' },
+                        { href: '/pricing', label: 'Pricing' },
+                    ].map((link) => (
+                        <Link key={link.href} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className={`transition-all py-3 px-3 rounded-lg ${pathname === link.href ? 'text-white bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>
+                            {link.label}
+                        </Link>
+                    ))}
 
-                        </div>
+                    <div className="!mt-8 pt-6 border-t border-white/10 space-y-3">
+                        <Link href="https://clients.zenexcloud.com/index.php?rp=/store/web-hosting/zenbasic&_gl=1*vytkqm*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIwMzc4MTckbzExJGcxJHQxNzgyMDM5ODY1JGoyNiRsMCRoMTc4OTE5MDYyNA.." className="bg-cyan-500 hover:bg-cyan-400 text-white rounded-full px-5 py-3 transition-all flex items-center justify-center w-full shadow-[0_0_20px_rgba(0,163,255,0.3)] font-semibold">
+                            Start Hosting <ArrowRight className="w-4 h-4 ml-1.5" />
+                        </Link>
                     </div>
                 </div>
-            </nav>
+            </div>
         </>
     );
 };
