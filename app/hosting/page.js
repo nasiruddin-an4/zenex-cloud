@@ -1,8 +1,4 @@
-import HostingHero from "../components/HostingHero";
-import HostingPricing from "../components/HostingPricing";
-import HostingComparison from "../components/HostingComparison";
-import HostingFeatures from "../components/HostingFeatures";
-import HostingUseCases from "../components/HostingUseCases";
+import HostingClient from "./HostingClient";
 
 export const metadata = {
   title: "Cloud Hosting - Zenex Cloud Solutions",
@@ -12,11 +8,7 @@ export const metadata = {
 export default function HostingPage() {
   return (
     <div>
-      <HostingHero />
-      <HostingPricing />
-      <HostingComparison />
-      <HostingFeatures />
-      <HostingUseCases />
+      <HostingClient />
     </div>
   );
 }

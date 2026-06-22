@@ -1,7 +1,4 @@
-import VPSHero from "../components/VPSHero";
-import VPSPricing from "../components/VPSPricing";
-import VPSFeatures from "../components/VPSFeatures";
-import VPSUseCases from "../components/VPSUseCases";
+import VPSClient from "./VPSClient";
 
 export const metadata = {
   title: "VPS Hosting - Zenex Cloud Solutions",
@@ -11,10 +8,7 @@ export const metadata = {
 export default function VPSPage() {
   return (
     <div>
-      <VPSHero />
-      <VPSPricing />
-      <VPSFeatures />
-      <VPSUseCases />
+      <VPSClient />
     </div>
   );
 }

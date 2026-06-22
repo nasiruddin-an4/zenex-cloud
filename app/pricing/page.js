@@ -1,5 +1,4 @@
-import PricingHero from "../components/PricingHero";
-import PricingAll from "../components/PricingAll";
+import PricingClient from "./PricingClient";
 import FAQ from "../components/FAQ";
 
 export const metadata = {
@@ -10,8 +9,7 @@ export const metadata = {
 export default function PricingPage() {
   return (
     <div>
-      <PricingHero />
-      <PricingAll />
+      <PricingClient />
       <FAQ />
     </div>
   );

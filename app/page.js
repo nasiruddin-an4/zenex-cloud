@@ -1,26 +1,11 @@
-import Hero from "./components/Hero";
-import TrustedBy from "./components/TrustedBy";
-import Services from "./components/Services";
-import Features from "./components/Features";
-import Benchmark from "./components/Benchmark";
-import Solutions from "./components/Solutions";
-import GPUServers from "./components/GPUServers";
-import Migration from "./components/Migration";
-import CTA from "./components/CTA";
+import HomeClient from "./HomeClient";
 import FAQ from "./components/FAQ";
-import Image from "next/image";
+import CTA from "./components/CTA";
 
 export default function Home() {
   return (
     <div>
-      <Hero />
-      <TrustedBy />
-      <Services />
-      <Features />
-      <Benchmark />
-      <Solutions />
-      <GPUServers />
-      <Migration />
+      <HomeClient />
       <FAQ />
       <CTA />
     </div>

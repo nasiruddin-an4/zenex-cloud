@@ -1,6 +1,4 @@
-import S3Hero from "../components/S3Hero";
-import S3Pricing from "../components/S3Pricing";
-import S3Features from "../components/S3Features";
+import S3Client from "./S3Client";
 
 export const metadata = {
   title: "S3 Object Storage - Zenex Cloud Solutions",
@@ -10,9 +8,7 @@ export const metadata = {
 export default function S3BucketPage() {
   return (
     <div>
-      <S3Hero />
-      <S3Pricing />
-      <S3Features />
+      <S3Client />
     </div>
   );
 }
