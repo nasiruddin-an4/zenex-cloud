@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { ArrowRight, X, Menu } from 'lucide-react';
+import { ArrowRight, X, Menu, User } from 'lucide-react';
 
 const Navbar = () => {
     const pathname = usePathname();
@@ -80,17 +80,20 @@ const Navbar = () => {
                     </div>
 
                     {/* Right Actions */}
-                    <div className="hidden lg:flex items-center space-x-5">
-                        <div className="flex items-center mr-2">
-                            <Link href="https://clients.zenexcloud.com/index.php?rp=/login&_gl=1*3as8su*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIxMjU1NjckbzE1JGcxJHQxNzgyMTI1OTQ5JGo0OSRsMCRoNDg3MjQxOTkx" className="text-[15px] font-medium text-gray-600 hover:text-cyan-500 transition-colors duration-300">
-                                Login
-                            </Link>
-                        </div>
-                        <Link
-                            href="https://clients.zenexcloud.com/register.php?_gl=1*1ao0rgm*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIxMjU1NjckbzE1JGcxJHQxNzgyMTI2MDcwJGo0MCRsMCRoNDg3MjQxOTkx"
-                            className="bg-cyan-500 hover:bg-cyan-400 text-white rounded-full px-6 py-2.5 text-sm font-semibold flex items-center transition-all duration-300 shadow-[0_0_20px_rgba(0,163,255,0.3)] hover:shadow-[0_0_30px_rgba(0,163,255,0.5)]"
-                        >
-                            Register <ArrowRight className="w-4 h-4 ml-1.5" />
+                    <div className="hidden lg:flex items-center space-x-6">
+                        {/* Ask AI Button */}
+                        <button className="relative flex items-center justify-center px-5 py-2 rounded-full font-semibold text-[15px] group">
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-fuchsia-500 via-purple-500 to-cyan-500 p-[1.5px]" />
+                            <div className="absolute inset-[1.5px] rounded-full bg-cyan-800 transition-colors group-hover:bg-[#1a1d24]" />
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 text-white relative z-10">
+                                <path d="M12 2.5L14.5 9.5L21.5 12L14.5 14.5L12 21.5L9.5 14.5L2.5 12L9.5 9.5L12 2.5Z" fill="currentColor" />
+                            </svg>
+                            <span className="text-white relative z-10">Ask AI</span>
+                        </button>
+
+                        {/* User Icon */}
+                        <Link href="https://clients.zenexcloud.com/index.php?rp=/login" className="text-gray-800 hover:text-cyan-500 transition-colors duration-300">
+                            <User className="w-[22px] h-[22px] stroke-[2.5]" />
                         </Link>
                     </div>
 
@@ -144,13 +147,22 @@ const Navbar = () => {
                         </Link>
                     ))}
 
-                    <div className="!mt-8 pt-6 border-t border-white/10 space-y-3">
-                        <Link href="https://clients.zenexcloud.com/index.php?rp=/login&_gl=1*3as8su*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIxMjU1NjckbzE1JGcxJHQxNzgyMTI1OTQ5JGo0OSRsMCRoNDg3MjQxOTkx" className="w-full text-center block text-gray-300 hover:text-white py-2 transition-colors font-medium">
-                            Login
-                        </Link>
-                        <Link href="https://clients.zenexcloud.com/register.php?_gl=1*1ao0rgm*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIxMjU1NjckbzE1JGcxJHQxNzgyMTI2MDcwJGo0MCRsMCRoNDg3MjQxOTkx" className="bg-cyan-500 hover:bg-cyan-400 text-white rounded-full px-5 py-3 mt-4 transition-all flex items-center justify-center w-full shadow-[0_0_20px_rgba(0,163,255,0.3)] font-semibold">
-                            Register <ArrowRight className="w-4 h-4 ml-1.5" />
-                        </Link>
+                    <div className="!mt-8 pt-6 border-t border-white/10 space-y-5">
+                        <button className="relative flex items-center justify-center w-full py-3.5 rounded-full font-semibold text-[15px] group">
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-fuchsia-500 via-purple-500 to-cyan-500 p-[1.5px]" />
+                            <div className="absolute inset-[1.5px] rounded-full bg-[#0a1e2e] transition-colors" />
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 text-white relative z-10">
+                                <path d="M12 2.5L14.5 9.5L21.5 12L14.5 14.5L12 21.5L9.5 14.5L2.5 12L9.5 9.5L12 2.5Z" fill="currentColor" />
+                            </svg>
+                            <span className="text-white relative z-10">Ask AI</span>
+                        </button>
+
+                        <div className="flex items-center justify-center px-2 pt-2">
+                            <Link href="https://clients.zenexcloud.com/index.php?rp=/login" className="flex items-center gap-2 text-white hover:text-cyan-400 transition-colors duration-300">
+                                <User className="w-[22px] h-[22px] stroke-[2.5]" />
+                                <span className="font-medium text-[15px]">Account</span>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
