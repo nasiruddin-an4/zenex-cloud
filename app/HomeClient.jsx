@@ -120,7 +120,7 @@ const Hero = () => {
                             aria-label="Find Your Domain"
                             className="bg-cyan-500 hover:bg-cyan-400 text-white rounded-full px-4 sm:px-5 md:px-8 py-3 md:py-3.5 whitespace-nowrap text-sm md:text-base font-semibold flex items-center transition-all duration-300 shadow-[0_0_20px_rgba(0,163,255,0.3)] hover:shadow-[0_0_30px_rgba(0,163,255,0.5)] shrink-0"
                         >
-                            <span className="hidden sm:inline">Find Your Domain</span> 
+                            <span className="hidden sm:inline">Find Your Domain</span>
                             <Search className="w-5 h-5 sm:w-4 sm:h-4 sm:ml-2" />
                         </button>
                     </form>
@@ -288,20 +288,17 @@ const servicesData = [
 const Services = () => {
     return (
         <section className="w-full bg-white py-24 font-sans text-slate-900 relative z-10">
-            <div className="max-w-screen-2xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-6">
                 {/* Header Section */}
                 <div className="flex flex-col lg:flex-row justify-between items-start mb-24 gap-8">
                     <div>
-                        <span className="inline-block px-3 py-1 rounded bg-[#EAF5FA] text-[#009DD9] text-[11px] font-bold tracking-widest uppercase mb-6">
-                            Services
-                        </span>
-                        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight text-slate-900 leading-[1.1]">
+                        <h2 className="text-4xl md:text-4xl font-bold tracking-tight text-slate-900 leading-[1.1]">
                             Infrastructure and<br />Cloud Services
                         </h2>
                     </div>
-                    <div className="lg:max-w-md lg:pt-16">
+                    <div className="lg:max-w-xl">
                         <p className="text-slate-700 font-semibold text-base md:text-lg leading-relaxed">
-                            Reliable hosting, virtual servers, object storage, and AI-ready compute resources — all from a single platform.
+                            Reliable hosting, virtual servers, object storage, and AI-ready compute resources all from a single platform.
                         </p>
                     </div>
                 </div>
@@ -422,15 +419,13 @@ const featureData = [
 const Features = () => {
     return (
         <section className="w-full bg-[#E6EFF3] py-24 relative z-10">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+            <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header */}
-                <div className="flex flex-col items-center text-center mb-16">
-                    <span className="text-[#009DD9] text-[11px] font-bold tracking-widest uppercase mb-4">
-                        WHY CHOOSE US
-                    </span>
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">
-                        Infrastructure Designed<br className="hidden md:block" /> For Reliability
+                <div className="text-center flex flex-col items-center mb-10">
+
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+                        Infrastructure Designed For Reliability
                     </h2>
                     <p className="text-slate-600 text-sm md:text-base max-w-2xl font-medium">
                         Every layer of our platform is optimized to deliver speed, stability, and security for businesses that depend on their online presence.
@@ -515,7 +510,7 @@ const floatingCards = [
 const Benchmark = () => {
     return (
         <section className="w-full bg-white py-20 lg:py-32 font-sans overflow-hidden">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+            <div className="max-w-7xl mx-auto px-6">
 
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
 
@@ -562,7 +557,7 @@ const Benchmark = () => {
 
                         {/* Disclaimer */}
                         <p className="text-slate-500 text-[11px] mb-12 font-medium">
-                            Tested via <strong className="text-slate-800">GTMetrix</strong> - June 2025.
+                            Tested via <strong className="text-slate-800">GTMetrix</strong> - May 2026
                         </p>
 
                     </div>
@@ -658,11 +653,11 @@ const Solutions = () => {
 
     return (
         <section className="w-full bg-[#EAF5FA] py-20 lg:py-28 font-sans overflow-hidden relative">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
 
                 {/* Header Section */}
                 <div className="flex flex-col lg:flex-row justify-between items-center mb-10 gap-4">
-                    <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-bold tracking-tight text-slate-900 2xl:max-w-lg leading-[1.1]">
+                    <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-slate-900 max-w-md leading-[1.1]">
                         Solutions Tailored To How You Build
                     </h2>
 
@@ -838,22 +833,17 @@ const GPUServers = () => {
 
     return (
         <section className="w-full bg-white py-20 lg:py-28 font-sans">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+            <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header Section */}
                 <div className="flex flex-col lg:flex-row justify-between items-start mb-16 gap-6 relative z-10">
                     <div className="flex flex-col">
-                        {/* Top Badge */}
-                        <div className="inline-flex items-center space-x-2 bg-brandColor/10 border border-brandColor/20 rounded-full px-3 py-1 mb-6 w-max">
-                            <div className="w-1.5 h-1.5 rounded-full bg-brandColor"></div>
-                            <span className="text-[12px] font-bold tracking-wider text-brandColor">BUILT FOR AI INNOVATION</span>
-                        </div>
-                        <h2 className="text-3xl md:text-[44px] font-extrabold tracking-tight text-slate-900 max-w-xl leading-[1.15]">
+                        <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight text-slate-900 max-w-xl leading-[1.15]">
                             GPU Dedicated Servers<br />
                             Built for <span className="text-brandColor">Deep Learning</span>
                         </h2>
                     </div>
-                    <div className="max-w-md pt-0 lg:pt-12">
+                    <div className="max-w-md ">
                         <p className="text-slate-600 font-medium text-[15px] leading-relaxed">
                             Host and fine-tune large models, run real-time inference pipelines, or accelerate rendering using enterprise RTX 4000 series bare metal and vGPU instances.
                         </p>
@@ -872,7 +862,7 @@ const GPUServers = () => {
                             <div
                                 key={server.id}
                                 onMouseEnter={() => setHoveredId(server.id)}
-                                className={`relative flex flex-col p-6 lg:p-8 rounded-2xl transition-all duration-300 overflow-hidden group cursor-pointer ${isActive
+                                className={`relative flex flex-col p-6 rounded-2xl transition-all duration-300 overflow-hidden group cursor-pointer ${isActive
                                     ? 'bg-slate-900 border-2 border-brandColor shadow-[0_0_20px_rgba(0,157,217,0.3)]'
                                     : 'bg-slate-50 border border-slate-200 hover:border-brandColor/50 shadow-sm'
                                     }`}
@@ -970,7 +960,7 @@ const GPUServers = () => {
 const Migration = () => {
     return (
         <section className="w-full bg-[#EAF5FA] py-20 lg:py-28 font-sans">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+            <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
                     {/* Left Column - Image & Floating Badges */}
@@ -994,19 +984,11 @@ const Migration = () => {
                             </div>
                             <span className="text-[13px] font-bold text-slate-800 tracking-wide">Transfer Your Domain</span>
                         </div>
-
-                        {/* Bottom Right Floating Badge */}
-                        <div className="absolute -bottom-5 right-4 md:bottom-8 md:-right-4 bg-white rounded-xl p-2 pl-5 flex items-center gap-3 shadow-md border border-slate-100 animate-fade-in-up animation-delay-200">
-                            <span className="text-[13px] font-bold text-slate-800 tracking-wide">Migrate Your Site</span>
-                            <div className="bg-[#023B5A] p-2.5 rounded-lg">
-                                <ArrowRightLeft className="w-4 h-4 text-white" strokeWidth={2.5} />
-                            </div>
-                        </div>
                     </div>
 
                     {/* Right Column - Content */}
                     <div className="w-full lg:w-1/2 flex flex-col order-1 lg:order-2">
-                        <h2 className="text-3xl md:text-[44px] font-bold text-slate-900 leading-[1.15] tracking-tight mb-6">
+                        <h2 className="text-2xl md:text-4xl font-bold text-slate-900 leading-[1.15] tracking-tight mb-6">
                             Free Migration, Faster Hosting<br />Zero Downtime
                         </h2>
                         <p className="text-slate-600 text-[15px] leading-relaxed mb-10 max-w-[500px]">
@@ -1029,13 +1011,7 @@ const Migration = () => {
                             ))}
                         </div>
 
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                            <Link href="/hosting" className="bg-gradient-to-r from-[#009DD9] to-[#01B5F8] text-white px-6 py-3 rounded-full font-bold text-[14px] flex items-center gap-2 hover:shadow-[0_0_20px_rgba(0,157,217,0.3)] transition-all group">
-                                Start Hosting Option
-                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </Link>
 
-                        </div>
                     </div>
 
                 </div>
@@ -1050,7 +1026,7 @@ export default function HomeClient() {
     return (
         <div>
             <Hero />
-            <TrustedBy />
+            {/* <TrustedBy /> */}
             <Services />
             <Features />
             <Benchmark />

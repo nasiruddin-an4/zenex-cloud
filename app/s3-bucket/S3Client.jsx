@@ -21,7 +21,7 @@ const S3Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#020813] via-[#020813]/90 to-[#020813]/40"></div>
             </div>
 
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12 w-full relative z-10 py-16 md:py-24">
+            <div className="max-w-7xl mx-auto px-6 w-full relative z-10 py-16 md:py-24">
                 <div className="flex flex-col items-start max-w-3xl">
 
                     {/* Top Badge */}
@@ -66,12 +66,8 @@ const S3Hero = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up animation-delay-400 w-full sm:w-auto">
-                        <button className="btn-primary w-full sm:w-auto px-8 py-3.5 text-[15px]">
+                        <Link href="https://clients.zenexcloud.com/index.php?rp=/store/s3-bucket" className="btn-primary w-full sm:w-auto px-8 py-3.5 text-sm">
                             Create Your Bucket <ArrowRight className="w-4 h-4 ml-2" />
-                        </button>
-                        <span className="text-slate-400 text-sm hidden sm:block">or</span>
-                        <Link href="#bucket-pricing" className="w-full sm:w-auto text-center sm:text-left text-white font-medium hover:text-brandColor transition-colors flex items-center justify-center text-[15px]">
-                            View Pricing <ArrowRight className="w-4 h-4 ml-2" />
                         </Link>
                     </div>
 
@@ -109,7 +105,7 @@ const S3Pricing = () => {
     if (loading) {
         return (
             <section id="bucket-pricing" className="w-full bg-gray-50 py-20 px-4 md:px-8 font-sans">
-                <div className="max-w-screen-2xl mx-auto flex flex-col items-center justify-center min-h-[400px]">
+                <div className="max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[400px]">
                     <Loader2 className="w-8 h-8 text-brandColor animate-spin mb-4" />
                     <p className="text-slate-500 text-sm font-medium">Loading storage plans...</p>
                 </div>
@@ -119,23 +115,23 @@ const S3Pricing = () => {
 
     return (
         <section id="bucket-pricing" className="w-full bg-gray-50 py-20 px-4">
-            <div className="container mx-auto">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight max-w-2xl tracking-tight">
+                <div className=" justify-between items-start md:items-end mb-8 gap-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight tracking-tight mb-2">
                         Simple, Transparent <span className="text-brandColor">Storage Pricing</span>
                     </h2>
-                    <p className="text-slate-600 font-medium max-w-xs text-[15px] leading-relaxed">
+                    <p className="text-slate-500 font-medium text-md">
                         Pay for what you need. Scale your storage as your data grows.
                     </p>
                 </div>
 
                 {/* Main Pricing Container */}
-                <div className="relative w-full rounded-xl overflow-hidden bg-[#EBF5FB] p-6 sm:p-10 md:p-14 mb-12">
+                <div className="relative w-full rounded-xl overflow-hidden mb-12">
 
                     {/* Pricing Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 bg-white rounded-2xl overflow-hidden border border-slate-100">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
                         {plans.map((plan, index) => {
                             const isPop = plan.is_popular === 1;
                             const features = parseFeatures(plan.description);
@@ -143,13 +139,12 @@ const S3Pricing = () => {
                             return (
                                 <div
                                     key={index}
-                                    className={`relative flex flex-col p-8 md:p-10 transition-colors duration-300 ${isPop ? 'bg-[#061E2E] text-white' : 'bg-white text-slate-900 border-r last:border-r-0 border-slate-100'
-                                        }`}
+                                    className="group relative flex flex-col p-8 md:p-10 transition-all duration-300 bg-white rounded-2xl hover:bg-[#061E2E] hover:border-transparent hover:shadow-xl"
                                 >
                                     {/* Popular Badge */}
                                     {isPop && (
                                         <div className="absolute top-8 right-8">
-                                            <span className="inline-flex items-center space-x-1 bg-brandColor/10 text-brandColor text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider">
+                                            <span className="inline-flex items-center space-x-1 bg-brandColor/10 text-brandColor text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider group-hover:bg-white/10 group-hover:text-[#8AD9F8] transition-colors">
                                                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
                                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                                 </svg>
@@ -160,26 +155,26 @@ const S3Pricing = () => {
 
                                     {/* Plan Name & Price */}
                                     <div className="mb-8">
-                                        <h3 className={`text-2xl font-bold mb-3 ${isPop ? 'text-white' : 'text-slate-900'}`}>{plan.name || plan.package_name}</h3>
+                                        <h3 className="text-2xl font-bold mb-3 text-slate-900 group-hover:text-white transition-colors">{plan.name || plan.package_name}</h3>
                                         <div className="flex items-baseline text-[42px] font-bold tracking-tighter">
-                                            <span className={`text-2xl mr-1 font-medium ${isPop ? 'text-brandColor' : 'text-slate-500'}`}>$</span>
-                                            {plan.price}
-                                            <span className={`text-base font-normal ml-1 ${isPop ? 'text-slate-300' : 'text-slate-500'}`}>/mon</span>
+                                            <span className="text-2xl mr-1 font-medium text-slate-500 group-hover:text-[#8AD9F8] transition-colors">$</span>
+                                            <span className="text-slate-900 group-hover:text-white transition-colors">{plan.price}</span>
+                                            <span className="text-base font-normal ml-1 text-slate-500 group-hover:text-slate-400 transition-colors">/mon</span>
                                         </div>
                                     </div>
 
-                                    <div className={`w-full h-px mb-8 ${isPop ? 'bg-slate-700/50' : 'bg-slate-100'}`}></div>
+                                    <div className="w-full h-px mb-8 bg-slate-100 group-hover:bg-slate-700/50 transition-colors"></div>
 
                                     {/* Features */}
                                     <div className="flex-grow">
-                                        <p className={`font-semibold mb-6 ${isPop ? 'text-white' : 'text-slate-900'}`}>Features:</p>
+                                        <p className="font-semibold mb-6 text-slate-900 group-hover:text-white transition-colors">Features:</p>
                                         <ul className="space-y-4 mb-10">
                                             {features.map((feature, fIdx) => (
                                                 <li key={fIdx} className="flex items-center space-x-3">
-                                                    <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${isPop ? 'bg-brandColor' : 'bg-brandColor'}`}>
+                                                    <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 bg-brandColor">
                                                         <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                                                     </div>
-                                                    <span className={`text-[15px] font-medium ${isPop ? 'text-slate-200' : 'text-slate-700'}`}>
+                                                    <span className="text-[15px] font-medium text-slate-700 group-hover:text-slate-200 transition-colors">
                                                         {feature}
                                                     </span>
                                                 </li>
@@ -189,17 +184,15 @@ const S3Pricing = () => {
 
                                     {/* Action Button */}
                                     <div className="mt-auto w-full">
-                                        {!isPop && <div className="w-full h-px bg-slate-200 mb-3"></div>}
+                                        <div className="w-full h-px bg-slate-200 group-hover:bg-transparent mb-3 transition-colors"></div>
                                         <a
                                             href={plan.url || "https://clients.zenexcloud.com"}
                                             rel="noopener noreferrer"
-                                            className={`py-3.5 rounded-full font-medium flex items-center transition-all duration-300 text-[14px] ${isPop
-                                                ? 'w-[80%] lg:w-[70%] mr-auto bg-brandColor text-white hover:bg-[#008FCC] shadow-[0_4px_14px_0_rgba(0,157,217,0.39)] justify-center'
-                                                : 'w-full bg-transparent text-slate-700 hover:text-brandColor group justify-start px-0'
-                                                }`}>
+                                            className="py-3.5 rounded-full font-semibold flex items-center transition-all duration-300 text-[14px] w-full bg-transparent text-slate-700 group-hover:text-white hover:!text-brandColor justify-start px-0"
+                                        >
                                             <span className="flex items-center">
                                                 Create Bucket
-                                                <ArrowRight className={`w-4 h-4 ml-2 transition-transform duration-300 ${!isPop ? 'group-hover:translate-x-1' : ''}`} />
+                                                <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                                             </span>
                                         </a>
                                     </div>
@@ -254,7 +247,7 @@ const features = [
 const S3Features = () => {
     return (
         <section className="w-full bg-white py-24 px-4 md:px-8 font-sans">
-            <div className="max-w-screen-2xl mx-auto">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
                 <div className="text-center mb-16">
@@ -272,8 +265,8 @@ const S3Features = () => {
                         const Icon = feature.icon;
                         return (
                             <div key={idx} className="bg-slate-50 rounded-2xl p-8 hover:bg-white hover:shadow-lg hover:shadow-slate-100 border border-transparent hover:border-slate-200 transition-all duration-300 group">
-                                <div className="w-14 h-14 rounded-xl bg-emerald-50 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:-translate-y-1">
-                                    <Icon className="w-7 h-7 text-emerald-600" strokeWidth={1.5} />
+                                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:-translate-y-1">
+                                    <Icon className="w-7 h-7 text-blue-600" strokeWidth={1.5} />
                                 </div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
                                 <p className="text-slate-600 text-[15px] leading-relaxed">{feature.desc}</p>

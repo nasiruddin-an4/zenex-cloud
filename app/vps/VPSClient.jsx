@@ -22,7 +22,7 @@ const VPSHero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#020813] via-[#020813]/85 to-transparent"></div>
             </div>
 
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12 w-full relative z-10 py-16 md:py-24">
+            <div className="max-w-7xl mx-auto px-6 w-full relative z-10 py-16 md:py-24">
                 <div className="flex flex-col items-start max-w-3xl">
 
                     {/* Top Badge */}
@@ -67,12 +67,8 @@ const VPSHero = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up animation-delay-400 w-full sm:w-auto">
-                        <button className="btn-primary w-full sm:w-auto px-8 py-3.5 text-[15px]">
+                        <Link href="https://clients.zenexcloud.com/index.php?rp=/store/managed-vps-hosting" className="btn-primary w-full sm:w-auto px-8 py-3.5 text-[15px]">
                             Configure Your VPS <ArrowRight className="w-4 h-4 ml-2" />
-                        </button>
-                        <span className="text-slate-400 text-sm hidden sm:block">or</span>
-                        <Link href="#vps-pricing" className="w-full sm:w-auto text-center sm:text-left text-white font-medium hover:text-brandColor transition-colors flex items-center justify-center text-[15px]">
-                            Compare Plans <ArrowRight className="w-4 h-4 ml-2" />
                         </Link>
                     </div>
 
@@ -105,8 +101,8 @@ const VPSPricing = () => {
 
     if (loading) {
         return (
-            <section id="vps-pricing" className="w-full bg-gray-50 py-20 px-4 md:px-8 font-sans">
-                <div className="max-w-screen-2xl mx-auto flex flex-col items-center justify-center min-h-[400px]">
+            <section id="vps-pricing" className="w-full bg-gray-50 py-20 px-4 ">
+                <div className="max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[400px]">
                     <Loader2 className="w-8 h-8 text-brandColor animate-spin mb-4" />
                     <p className="text-slate-500 text-sm font-medium">Loading VPS plans...</p>
                 </div>
@@ -115,11 +111,11 @@ const VPSPricing = () => {
     }
 
     return (
-        <section id="vps-pricing" className="w-full bg-gray-50 py-20 px-4 md:px-8 font-sans">
-            <div className="max-w-screen-2xl mx-auto">
+        <section id="vps-pricing" className="w-full bg-gradient-to-b from-white to-[#e8f6ff] py-20 px-4 ">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6">
+                <div className="flex flex-col md:flex-row justify-between mb-8 gap-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight max-w-xl tracking-tight">
                         Choose The Right VPS<br />For Your Workload
                     </h2>
@@ -129,22 +125,11 @@ const VPSPricing = () => {
                 </div>
 
                 {/* Main Pricing Container */}
-                <div className="relative w-full mt-12 mb-12">
-                    
+                <div className="relative w-full">
                     {/* Main Container */}
-                    <div className="relative bg-gradient-to-b from-[#E3F2FA] to-[#BFE4F8] rounded-2xl p-6 pt-16 md:p-10 md:pt-20">
-                        
-                        {/* Toggle Switch */}
-                        <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-white p-1 rounded-sm border border-slate-200 flex items-center shadow-sm z-10">
-                            <button className="px-5 py-1.5 bg-[#061E2E] text-white text-[13px] font-medium rounded-sm">Monthly</button>
-                            <button className="px-5 py-1.5 bg-transparent text-slate-700 hover:text-slate-900 text-[13px] font-medium rounded-sm transition-colors">Yearly</button>
-                            <span className="flex items-center text-brandColor text-[11px] font-bold px-2 py-1 ml-1 bg-[#EBF5FB] rounded-sm">
-                                <Zap className="w-3 h-3 mr-1" /> 20% flat
-                            </span>
-                        </div>
-
+                    <div className="relative">
                         {/* Pricing Cards Grid */}
-                        <div className="grid grid-cols-1 lg:grid-cols-4 relative z-0 bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 relative z-10">
                             {plans.map((plan, index) => {
                                 const isPop = plan.is_popular === 1;
                                 const features = parseFeatures(plan.description);
@@ -152,38 +137,36 @@ const VPSPricing = () => {
                                 return (
                                     <div
                                         key={index}
-                                        className={`relative flex flex-col ${isPop ? 'bg-[#061E2E] text-white' : 'bg-transparent text-slate-900'} ${
-                                            index !== plans.length - 1 ? 'border-b lg:border-b-0 lg:border-r border-slate-200' : ''
-                                        }`}
+                                        className={`group relative flex flex-col transition-all duration-300 bg-white rounded-xl shadow hover:bg-[#061E2E] hover:border-transparent hover:shadow-lg`}
                                     >
                                         {/* Top Section */}
-                                        <div className={`p-8 pb-6 ${isPop ? '' : 'border-b border-slate-100'}`}>
+                                        <div className="p-8 pb-6 border-b border-slate-100 group-hover:border-white transition-colors">
                                             <div className="flex justify-between items-center mb-2">
-                                                <h3 className={`text-lg font-bold ${isPop ? 'text-white' : 'text-slate-800'}`}>{plan.name || plan.package_name}</h3>
+                                                <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors">{plan.name || plan.package_name}</h3>
                                                 {isPop && (
-                                                    <span className="inline-flex items-center space-x-1 bg-white/10 text-[#8AD9F8] text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider">
+                                                    <span className="inline-flex items-center space-x-1 text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider text-brandColor bg-brandColor/10 group-hover:bg-white/10 group-hover:text-[#8AD9F8] transition-colors">
                                                         <Zap className="w-3 h-3" />
                                                         <span>Popular</span>
                                                     </span>
                                                 )}
                                             </div>
                                             <div className="flex items-baseline font-bold tracking-tighter">
-                                                <span className={`text-lg mr-1 ${isPop ? 'text-[#8AD9F8]' : 'text-slate-500'}`}>$</span>
-                                                <span className="text-[40px] leading-none">{plan.price}</span>
-                                                <span className={`text-sm font-normal ml-1 ${isPop ? 'text-slate-400' : 'text-slate-500'}`}>/mon</span>
+                                                <span className="text-lg mr-1 text-slate-500 group-hover:text-[#8AD9F8] transition-colors">$</span>
+                                                <span className="text-[40px] leading-none text-slate-900 group-hover:text-white transition-colors">{plan.price}</span>
+                                                <span className="text-sm font-normal ml-1 text-slate-500 group-hover:text-slate-400 transition-colors">/mon</span>
                                             </div>
                                         </div>
 
                                         {/* Features Section */}
                                         <div className="p-8 pt-6 flex-grow">
-                                            <p className={`font-semibold mb-6 ${isPop ? 'text-white' : 'text-slate-900'}`}>Include:</p>
+                                            <p className="font-semibold mb-6 text-slate-900 group-hover:text-white transition-colors">Include:</p>
                                             <ul className="space-y-4">
                                                 {features.map((feature, fIdx) => (
                                                     <li key={fIdx} className="flex items-center space-x-3">
-                                                        <div className={`w-4 h-4 rounded-sm flex items-center justify-center shrink-0 ${isPop ? 'bg-brandColor' : 'bg-[#061E2E]'}`}>
+                                                        <div className="w-4 h-4 rounded-sm flex items-center justify-center shrink-0 bg-[#061E2E] group-hover:bg-brandColor transition-colors">
                                                             <Check className="w-3 h-3 text-white" strokeWidth={3} />
                                                         </div>
-                                                        <span className={`text-[14px] font-medium ${isPop ? 'text-slate-300' : 'text-slate-700'}`}>
+                                                        <span className="text-[14px] font-medium text-slate-700 group-hover:text-slate-300 transition-colors">
                                                             {feature}
                                                         </span>
                                                     </li>
@@ -192,16 +175,14 @@ const VPSPricing = () => {
                                         </div>
 
                                         {/* Action Button Section */}
-                                        <div className={`p-8 pt-6 mt-auto ${isPop ? '' : 'border-t border-slate-100'}`}>
+                                        <div className="p-8 pt-4 mt-auto border-t border-slate-100 group-hover:border-white transition-colors">
                                             <a
                                                 href={plan.url || "https://clients.zenexcloud.com"}
                                                 rel="noopener noreferrer"
-                                                className={`flex items-center transition-all duration-300 ${isPop
-                                                    ? 'w-[90%] mx-auto py-3 rounded-full bg-brandColor text-white font-semibold justify-center hover:bg-[#008FCC] shadow-[0_4px_14px_0_rgba(0,157,217,0.39)]'
-                                                    : 'w-full bg-transparent text-slate-700 font-semibold hover:text-brandColor group justify-start text-sm'
-                                                    }`}>
-                                                <span>{isPop ? `Launch ${plan.name || plan.package_name}` : 'Configure Server'}</span>
-                                                <ArrowRight className={`w-4 h-4 ml-2 transition-transform duration-300 ${!isPop ? 'group-hover:translate-x-1' : ''}`} />
+                                                className="flex items-center transition-all duration-300 w-full bg-transparent text-slate-700 font-semibold justify-start text-sm group-hover:text-white hover:!text-brandColor"
+                                            >
+                                                <span>Configure Server</span>
+                                                <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                                             </a>
                                         </div>
 
@@ -210,13 +191,6 @@ const VPSPricing = () => {
                             })}
                         </div>
                     </div>
-                </div>
-
-                {/* Footer Button */}
-                <div className="flex justify-center mt-8">
-                    <button className="px-6 py-2.5 rounded-full border border-slate-300 text-slate-700 font-medium text-sm hover:border-brandColor hover:text-brandColor transition-colors flex items-center">
-                        See Detailed Comparison <ArrowRight className="w-4 h-4 ml-2" />
-                    </button>
                 </div>
 
             </div>
@@ -262,12 +236,12 @@ const features = [
 
 const VPSFeatures = () => {
     return (
-        <section className="w-full bg-white py-24 px-4 md:px-8 font-sans">
-            <div className="max-w-screen-2xl mx-auto">
+        <section className="w-full bg-white py-24 px-4">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-2 tracking-tight">
                         Why Choose Managed VPS?
                     </h2>
                     <p className="text-slate-600 font-medium text-[15px] max-w-3xl mx-auto leading-relaxed">
@@ -339,13 +313,13 @@ const useCases = [
 
 const VPSUseCases = () => {
     return (
-        <section className="w-full bg-slate-900 py-24 px-4 md:px-8">
-            <div className="max-w-screen-2xl mx-auto">
+        <section className="w-full bg-slate-900 py-24 px-4">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 tracking-tight">
-                        Built For Every<br />Workload
+                        Built For Every Workload
                     </h2>
                     <p className="text-slate-400 font-medium text-[15px] max-w-3xl mx-auto leading-relaxed">
                         From simple web apps to complex database clusters, our VPS infrastructure scales to match your needs.
@@ -361,8 +335,8 @@ const VPSUseCases = () => {
                             <div key={index} className="bg-slate-900 p-10 md:p-14 flex flex-col items-center text-center group hover:bg-slate-800/80 transition-colors duration-300">
 
                                 {/* Icon */}
-                                <div className="w-16 h-16 rounded-2xl bg-brandPurple/10 border border-brandPurple/20 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:-translate-y-1">
-                                    <Icon className="w-8 h-8 text-brandPurple" strokeWidth={1.5} />
+                                <div className="w-16 h-16 rounded-2xl bg-blue-600/10 border border-blue-600/20 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:-translate-y-1">
+                                    <Icon className="w-8 h-8 text-blue-600" strokeWidth={1.5} />
                                 </div>
 
                                 {/* Content */}
@@ -376,7 +350,7 @@ const VPSUseCases = () => {
                                 {/* Link */}
                                 <Link
                                     href={useCase.href}
-                                    className="mt-auto inline-flex items-center text-sm font-bold text-brandPurple hover:text-brandCyan transition-colors"
+                                    className="mt-auto inline-flex items-center text-sm font-bold text-blue-600  hover:text-blue-500 transition-colors"
                                 >
                                     {useCase.link} <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
                                 </Link>

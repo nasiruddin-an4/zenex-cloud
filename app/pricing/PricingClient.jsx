@@ -130,8 +130,8 @@ const PricingAll = () => {
     }
 
     return (
-        <section className="w-full bg-gray-50 py-20 px-4 md:px-8 font-sans">
-            <div className="max-w-screen-2xl mx-auto">
+        <section className="w-full bg-gray-50 py-20 px-4">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Category Filter */}
                 <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -164,7 +164,7 @@ const PricingAll = () => {
                         const firstPopIdx = filteredPackages.findIndex(p => p.is_popular === 1);
                         // Only highlight the first popular package in the current view
                         const isPop = index === firstPopIdx;
-                            
+
                         const features = parseFeatures(pkg.description);
                         const colors = getCategoryColors(pkg.category_name);
                         const CategoryIcon = getCategoryIcon(pkg.category_name);
@@ -172,20 +172,17 @@ const PricingAll = () => {
                         return (
                             <div
                                 key={index}
-                                className={`relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl ${isPop
-                                    ? `${colors.bgDark} text-white shadow-lg`
-                                    : 'bg-white text-slate-900 border border-slate-200 hover:border-slate-300 shadow-sm'
-                                    }`}
+                                className="group relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300 shadow bg-white hover:bg-[#061E2E] hover:border-transparent hover:shadow-xl"
                             >
                                 <div className="p-8">
                                     {/* Category Badge + Popular */}
                                     <div className="flex items-center justify-between mb-6">
-                                        <span className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${colors.badge}`}>
+                                        <span className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${colors.badge} group-hover:bg-white/10 group-hover:text-[#8AD9F8] transition-colors`}>
                                             <CategoryIcon className="w-3 h-3" />
                                             {pkg.category_name}
                                         </span>
                                         {isPop && (
-                                            <span className="inline-flex items-center space-x-1 bg-white/10 text-white/90 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">
+                                            <span className="inline-flex items-center space-x-1 bg-brandColor/10 text-brandColor text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider group-hover:bg-white/10 group-hover:text-[#8AD9F8] transition-colors">
                                                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
                                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                                 </svg>
@@ -195,13 +192,13 @@ const PricingAll = () => {
                                     </div>
 
                                     {/* Plan Name */}
-                                    <h3 className={`text-xl font-bold mb-2 ${isPop ? 'text-white' : 'text-slate-900'}`}>
+                                    <h3 className="text-2xl font-bold mb-1 text-slate-900 group-hover:text-white transition-colors">
                                         {pkg.name || pkg.package_name}
                                     </h3>
 
                                     {/* Short Description */}
                                     {pkg.short_description && (
-                                        <p className={`text-sm mb-5 leading-relaxed ${isPop ? 'text-slate-300' : 'text-slate-500'}`}>
+                                        <p className="text-sm mb-5 leading-relaxed text-slate-500 group-hover:text-slate-300 transition-colors">
                                             {pkg.short_description}
                                         </p>
                                     )}
@@ -209,32 +206,28 @@ const PricingAll = () => {
                                     {/* Price */}
                                     <div className="mb-2">
                                         <div className="flex items-baseline">
-                                            <span className={`text-2xl mr-1 font-medium ${isPop ? colors.accent : 'text-slate-500'}`}>$</span>
-                                            <span className="text-[38px] font-bold tracking-tighter">{pkg.price}</span>
-                                            <span className={`text-base font-normal ml-1 ${isPop ? 'text-slate-300' : 'text-slate-500'}`}>/mon</span>
+                                            <span className="text-2xl mr-1 font-medium text-slate-500 group-hover:text-[#8AD9F8] transition-colors">$</span>
+                                            <span className="text-[38px] font-bold tracking-tighter text-slate-900 group-hover:text-white transition-colors">{pkg.price}</span>
+                                            <span className="text-base font-normal ml-1 text-slate-500 group-hover:text-slate-400 transition-colors">/mon</span>
                                         </div>
-                                        {pkg.fake_price && pkg.fake_price !== "0" && (
-                                            <p className={`text-xs ${isPop ? 'text-slate-400' : 'text-slate-400'}`}>
-                                                <span className="line-through">${pkg.fake_price}/yr</span>
-                                            </p>
-                                        )}
+
                                         {pkg.renew_price_info && (
-                                            <p className={`text-xs mt-1 ${isPop ? 'text-slate-400' : 'text-slate-500'}`}>
+                                            <p className="text-xs mt-1 text-slate-500 group-hover:text-slate-400 transition-colors">
                                                 {pkg.renew_price_info}
                                             </p>
                                         )}
                                     </div>
 
-                                    <div className={`w-full h-px my-6 ${isPop ? 'bg-white/10' : 'bg-slate-100'}`}></div>
+                                    <div className="w-full h-px my-6 bg-slate-100 group-hover:bg-slate-700/50 transition-colors"></div>
 
                                     {/* Features */}
-                                    <ul className="space-y-3 mb-8">
+                                    <ul className="space-y-3 mb-4">
                                         {features.map((feature, fIdx) => (
                                             <li key={fIdx} className="flex items-start space-x-3">
-                                                <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${isPop ? colors.checkPop : colors.checkReg}`}>
+                                                <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-brandColor">
                                                     <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                                                 </div>
-                                                <span className={`text-[14px] font-medium leading-snug ${isPop ? 'text-slate-200' : 'text-slate-600'}`}>
+                                                <span className="text-[14px] font-medium leading-snug text-slate-600 group-hover:text-slate-200 transition-colors">
                                                     {feature}
                                                 </span>
                                             </li>
@@ -244,19 +237,16 @@ const PricingAll = () => {
 
                                 {/* Action Button - pinned to bottom */}
                                 <div className="mt-auto px-8 pb-8">
-                                    <a
-                                        href={`https://clients.zenexcloud.com`}
+                                    <Link
+                                        href={`https://clients.zenexcloud.com/index.php?rp=/store/` + pkg.slug}
                                         rel="noopener noreferrer"
-                                        className={`w-full py-3.5 rounded-full font-medium flex items-center justify-center transition-all duration-300 text-[14px] ${isPop
-                                            ? `${colors.btnPop} text-white`
-                                            : `border border-slate-300 text-slate-700 ${colors.btnHover} hover:border-current`
-                                            }`}
+                                        className="w-full py-3.5 rounded-full font-medium flex items-center justify-center transition-all duration-300 text-[14px] bg-transparent border border-slate-300 text-slate-700 group-hover:border-white group-hover:text-white hover:!text-brandColor hover:!border-brandColor"
                                     >
                                         <span className="flex items-center">
                                             Get Started
-                                            <ArrowRight className="w-4 h-4 ml-2" />
+                                            <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                                         </span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         );

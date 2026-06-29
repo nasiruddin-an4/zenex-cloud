@@ -23,34 +23,13 @@ const Navbar = () => {
 
     return (
         <>
-            {/* Top Banner */}
-            {/* {isTopBannerVisible && (
-                <div className="w-full relative z-[60] bg-[#062a3e] text-white text-xs">
-                    <div className="max-w-screen-2xl mx-auto w-full py-2.5 px-4 flex justify-between items-center">
-                        <div className="flex-1 flex justify-center items-center text-center gap-1">
-                            <span className="text-gray-300 hidden sm:inline">All systems operational · 99.97% uptime</span>
-                            <span className="hidden sm:inline mx-2 text-gray-500">·</span>
-                            <Link href="#" className="text-white font-semibold inline-flex items-center hover:text-cyan-300 transition-colors duration-300">
-                                Claim Offer <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                            </Link>
-                        </div>
-                        <button
-                            onClick={() => setIsTopBannerVisible(false)}
-                            className="text-gray-400 hover:text-white shrink-0 ml-4 transition-colors duration-200"
-                            aria-label="Close banner"
-                        >
-                            <X className="w-4 h-4" />
-                        </button>
-                    </div>
-                </div>
-            )} */}
 
             {/* Main Navbar */}
             <nav className={`w-full sticky top-0 z-50 transition-all duration-500 ${isScrolled
                 ? 'bg-white backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
                 : 'bg-white'
                 }`}>
-                <div className="max-w-screen-2xl mx-auto w-full py-4 px-6 flex justify-between items-center">
+                <div className="max-w-7xl mx-auto w-full py-4 px-4 md:px-0 flex justify-between items-center">
                     {/* Left Side: Logo & Desktop Menu */}
                     <div className="flex items-center">
                         <Link href="/" className="mr-10 lg:mr-14">
@@ -59,7 +38,7 @@ const Navbar = () => {
                                 alt="ZenexCloud"
                                 width={170}
                                 height={34}
-                                className="h-7 md:h-8 w-auto"
+                                className="h-7 md:h-9 w-auto"
                                 priority
                             />
                         </Link>
@@ -80,20 +59,18 @@ const Navbar = () => {
                     </div>
 
                     {/* Right Actions */}
-                    <div className="hidden lg:flex items-center space-x-6">
-                        {/* Ask AI Button */}
-                        <button className="relative flex items-center justify-center px-5 py-2 rounded-full font-semibold text-[15px] group">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-fuchsia-500 via-purple-500 to-cyan-500 p-[1.5px]" />
-                            <div className="absolute inset-[1.5px] rounded-full bg-cyan-800 transition-colors group-hover:bg-[#1a1d24]" />
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 text-white relative z-10">
-                                <path d="M12 2.5L14.5 9.5L21.5 12L14.5 14.5L12 21.5L9.5 14.5L2.5 12L9.5 9.5L12 2.5Z" fill="currentColor" />
-                            </svg>
-                            <span className="text-white relative z-10">Ask AI</span>
-                        </button>
-
-                        {/* User Icon */}
-                        <Link href="https://clients.zenexcloud.com/index.php?rp=/login" className="text-gray-800 hover:text-cyan-500 transition-colors duration-300">
-                            <User className="w-[22px] h-[22px] stroke-[2.5]" />
+                    <div className="hidden lg:flex items-center space-x-3">
+                        <Link
+                            href="https://clients.zenexcloud.com/register.php"
+                            className="text-[14px] font-semibold text-gray-800 bg-white border border-gray-200 hover:bg-gray-50 transition-all duration-300 px-5 py-2.5 rounded-[6px]"
+                        >
+                            Register
+                        </Link>
+                        <Link
+                            href="https://clients.zenexcloud.com/index.php?rp=/login"
+                            className="text-[14px] font-semibold text-white bg-[#0f62fe] hover:bg-blue-700 transition-colors duration-300 px-5 py-2.5 rounded-[6px]"
+                        >
+                            Login
                         </Link>
                     </div>
 

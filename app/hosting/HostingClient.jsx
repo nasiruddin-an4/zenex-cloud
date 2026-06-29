@@ -22,7 +22,7 @@ const HostingHero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#020813] via-[#020813]/80 to-transparent"></div>
             </div>
 
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12 w-full relative z-10 py-16 md:py-24">
+            <div className="max-w-7xl mx-auto px-6 w-full relative z-10 py-16 md:py-24">
                 <div className="flex flex-col items-start max-w-3xl">
 
                     {/* Top Badge */}
@@ -67,7 +67,7 @@ const HostingHero = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up animation-delay-400 w-full sm:w-auto">
-                        <Link href="" className="btn-primary w-full sm:w-auto px-8 py-3.5 text-[15px]">
+                        <Link href="https://clients.zenexcloud.com/index.php?rp=/store/web-hosting/zenbasic&_gl=1*1dz3c43*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODI3MjI3NjAkbzE4JGcxJHQxNzgyNzIzMTUxJGo2MCRsMCRoMjUzNjA2NDIx" className="btn-primary w-full sm:w-auto px-8 py-3.5 text-[15px]">
                             Get Started <ArrowRight className="w-4 h-4 ml-2" />
                         </Link>
                     </div>
@@ -102,7 +102,7 @@ const HostingPricing = () => {
     if (loading) {
         return (
             <section className="w-full bg-gray-50 py-20 px-4 md:px-8 font-sans">
-                <div className="max-w-screen-2xl mx-auto flex flex-col items-center justify-center min-h-[400px]">
+                <div className="max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[400px]">
                     <Loader2 className="w-8 h-8 text-brandColor animate-spin mb-4" />
                     <p className="text-slate-500 text-sm font-medium">Loading hosting plans...</p>
                 </div>
@@ -112,7 +112,7 @@ const HostingPricing = () => {
 
     return (
         <section className="w-full bg-gray-50 py-20 px-4 md:px-8 font-sans">
-            <div className="max-w-screen-2xl mx-auto">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6">
@@ -125,7 +125,7 @@ const HostingPricing = () => {
                 </div>
 
                 {/* Main Pricing Container */}
-                <div className="relative w-full rounded-xl overflow-hidden bg-[#EBF5FB] p-4 md:p-8 mb-12">
+                <div className="relative w-full rounded-xl">
 
                     {/* Pricing Cards Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -136,13 +136,12 @@ const HostingPricing = () => {
                             return (
                                 <div
                                     key={index}
-                                    className={`relative flex flex-col p-8 md:p-10 rounded-2xl transition-all duration-300 hover:shadow-xl ${isPop ? 'bg-[#061E2E] text-white shadow-lg' : 'bg-white text-slate-900 border border-slate-200 hover:border-slate-300 shadow-sm'
-                                        }`}
+                                    className="group relative flex flex-col p-8 md:p-10 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl bg-white hover:bg-[#061E2E] border border-slate-200 hover:border-[#061E2E]"
                                 >
                                     {/* Popular Badge */}
                                     {isPop && (
                                         <div className="absolute top-8 right-8">
-                                            <span className="inline-flex items-center space-x-1 bg-[#EBF5FB] text-brandColor text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider">
+                                            <span className="inline-flex items-center space-x-1 bg-[#EBF5FB] group-hover:bg-[#EBF5FB]/10 text-brandColor group-hover:text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider transition-colors duration-300">
                                                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
                                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                                 </svg>
@@ -153,53 +152,49 @@ const HostingPricing = () => {
 
                                     {/* Plan Name & Price */}
                                     <div className="mb-4">
-                                        <h3 className={`text-3xl font-bold mb-3 ${isPop ? 'text-white' : 'text-slate-900'}`}>{plan.name || plan.package_name}</h3>
-                                        <div className="flex items-baseline text-[42px] font-bold tracking-tighter">
-                                            <span className={`text-2xl mr-1 font-medium ${isPop ? 'text-brandColor' : 'text-slate-500'}`}>US$</span>
+                                        <h3 className="text-3xl font-bold mb-2 text-slate-900 group-hover:text-white transition-colors duration-300">{plan.name || plan.package_name}</h3>
+                                        <div className="flex items-baseline text-[42px] font-bold tracking-tighter text-slate-900 group-hover:text-white transition-colors duration-300">
+                                            <span className="text-2xl mr-1 font-medium text-slate-500 group-hover:text-brandColor transition-colors duration-300">$</span>
                                             {plan.price}
-                                            <span className={`text-base font-normal ml-1 ${isPop ? 'text-slate-300' : 'text-slate-500'}`}>/mo</span>
+                                            <span className="text-base font-normal ml-1 text-slate-500 group-hover:text-slate-300 transition-colors duration-300">/mo</span>
                                         </div>
-                                        <p className={`text-sm font-medium mt-1 mb-4 ${isPop ? 'text-slate-300' : 'text-slate-500'}`}>For 12-month term</p>
+                                        <p className="text-sm font-medium mb-2 text-slate-500 group-hover:text-slate-300 transition-colors duration-300">For 12-month term</p>
 
                                         {/* Action Button */}
                                         <div className="w-full mb-4">
                                             <a
                                                 href={plan.url || "https://clients.zenexcloud.com"}
                                                 rel="noopener noreferrer"
-                                                className={`py-3 rounded-xl font-semibold flex items-center justify-center w-full transition-all duration-300 text-[15px] border-2 ${isPop
-                                                    ? 'bg-brandColor border-brandColor text-white hover:bg-[#008FCC] hover:border-[#008FCC] shadow-[0_4px_14px_0_rgba(0,157,217,0.39)]'
-                                                    : 'bg-transparent border-indigo-600 text-indigo-600 hover:bg-indigo-50'
-                                                    }`}>
+                                                className="py-3 rounded-xl font-semibold flex items-center justify-center w-full transition-all duration-300 text-[15px] border-2 bg-transparent border-blue-500 text-blue-600 group-hover:bg-brandColor group-hover:border-brandColor group-hover:text-white group-hover:shadow-[0_4px_14px_0_rgba(0,157,217,0.39)] hover:scale-[1.02]"
+                                            >
                                                 <span>Choose plan</span>
                                             </a>
                                         </div>
                                         {plan.renew_price_info && (
-                                            <p className={`text-xs mt-3 ${isPop ? 'text-slate-400' : 'text-slate-500'}`}>
+                                            <p className="text-xs mt-3 text-slate-500 group-hover:text-slate-400 transition-colors duration-300">
                                                 {plan.renew_price_info.replace(/Renews at \$[0-9,]+\.[0-9]{2}/, `Renews at $${(parseFloat(plan.price) * 12).toFixed(2)}`)}
                                             </p>
                                         )}
                                     </div>
 
-                                    <div className={`w-full h-px mb-8 ${isPop ? 'bg-slate-700/50' : 'bg-slate-100'}`}></div>
+                                    <div className="w-full h-px mb-4 bg-slate-100 group-hover:bg-slate-700/50 transition-colors duration-300"></div>
 
                                     {/* Features */}
                                     <div className="flex-grow">
-                                        <p className={`font-semibold mb-6 ${isPop ? 'text-white' : 'text-slate-900'}`}>Includes:</p>
-                                        <ul className="space-y-4 mb-10">
+                                        <p className="font-semibold text-slate-900 group-hover:text-white transition-colors duration-300">Includes:</p>
+                                        <ul className="space-y-4">
                                             {features.map((feature, fIdx) => (
                                                 <li key={fIdx} className="flex items-center space-x-3">
-                                                    <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${isPop ? 'bg-brandColor' : 'bg-[#032A46]'}`}>
+                                                    <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 bg-[#032A46] group-hover:bg-brandColor transition-colors duration-300">
                                                         <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                                                     </div>
-                                                    <span className={`text-[15px] font-medium ${isPop ? 'text-slate-200' : 'text-slate-700'}`}>
+                                                    <span className="text-[15px] font-medium text-slate-700 group-hover:text-slate-200 transition-colors duration-300">
                                                         {feature}
                                                     </span>
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
-
-
 
                                 </div>
                             );
@@ -217,8 +212,8 @@ const HostingPricing = () => {
 
 const HostingComparison = () => {
     return (
-        <section className="w-full bg-slate-900 py-24 px-4 md:px-8 font-sans">
-            <div className="max-w-screen-2xl mx-auto">
+        <section className="w-full bg-slate-900 py-24 px-4">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
                 <div className="text-center mb-16">
@@ -330,13 +325,13 @@ const features = [
 
 const HostingFeatures = () => {
     return (
-        <section className="w-full bg-sky-50/50 py-24 px-4 md:px-8 font-sans">
-            <div className="max-w-screen-2xl mx-auto">
-                
+        <section className="w-full bg-sky-50/50 py-24 px-4">
+            <div className="max-w-7xl mx-auto">
+
                 {/* Header Row */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] tracking-tight max-w-xl">
-                        Everything You Need To<br />Build, Deploy & Scale.
+                        Everything You Need To<br />Build, Deploy & Scale
                     </h2>
                     <Link href="#" className="inline-flex items-center px-6 py-2.5 rounded-full border border-slate-300 text-slate-700 font-medium text-sm hover:border-brandColor hover:text-brandColor transition-colors bg-transparent">
                         Explore Infrastructure <ArrowRight className="w-4 h-4 ml-2" />
@@ -345,7 +340,7 @@ const HostingFeatures = () => {
 
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8">
-                    
+
                     {/* Left: Features List */}
                     <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 flex flex-col h-full">
                         <div className="flex-grow flex flex-col justify-between">
@@ -359,12 +354,12 @@ const HostingFeatures = () => {
                     </div>
 
                     {/* Right: Graphic */}
-                    <div className="bg-[#061C2C] rounded-2xl overflow-hidden relative min-h-[400px] lg:min-h-full flex items-center justify-center">
-                        <Image 
-                            src="/image 34.png" 
-                            alt="Cloud Infrastructure" 
+                    <div className="overflow-hidden relative min-h-[400px] flex items-center justify-center">
+                        <Image
+                            src="/image 34.png"
+                            alt="Cloud Infrastructure"
                             fill
-                            className="object-contain p-8"
+                            className="object-contain rounded-4xl"
                         />
                         {/* If the image doesn't exist or doesn't have the Z background, this CSS acts as a fallback/enhancement */}
                         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,157,217,0.15)_0%,rgba(0,0,0,0)_70%)]"></div>
@@ -414,12 +409,12 @@ const useCases = [
 const HostingUseCases = () => {
     return (
         <section className="w-full bg-white py-24 px-4 md:px-8">
-            <div className="max-w-screen-2xl mx-auto">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6 tracking-tight">
-                        Infrastructure That Adapts<br />to Your Goals.
+                        Infrastructure That Adapts<br />to Your Goals
                     </h2>
                     <p className="text-slate-600 font-medium text-[15px] max-w-3xl mx-auto leading-relaxed">
                         Whether you're building applications, managing clients, running stores, or operating business-critical systems, ZenexCloud provides infrastructure designed for your workload.

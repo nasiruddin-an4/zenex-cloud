@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 const CTA = () => {
     return (
         <section className="w-full bg-white py-16 lg:py-24 font-sans">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+            <div className="max-w-7xl mx-auto px-6">
 
                 {/* CTA Container */}
                 <div className="relative w-full rounded-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between p-10 md:p-16 lg:px-24 lg:py-20 bg-gradient-to-r from-[#012535] via-[#024060] to-[#008FCC]">

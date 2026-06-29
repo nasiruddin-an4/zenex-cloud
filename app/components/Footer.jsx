@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="text-slate-800 w-full z-10 relative">
             <div className="bg-white border-t border-slate-100">
-                <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-16">
+                <div className="max-w-7xl mx-auto px-6 py-16">
 
                     {/* Top Section - Links Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-4">
@@ -61,8 +61,8 @@ const Footer = () => {
             </div>
 
             {/* Bottom Footer Section */}
-            <div className="bg-gray-50 border-t border-slate-200">
-                <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-10 md:py-14">
+            <div className="bg-gray-50 ">
+                <div className="max-w-7xl mx-auto px-6 py-10">
 
                     {/* Row 1: Logo & Socials */}
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
@@ -112,9 +112,9 @@ const Footer = () => {
                     </div>
 
                     {/* Row 3: Copyright */}
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-600 font-medium pt-8 border-t border-slate-200">
-                        <p>© 2004-2026 ZenexCloud – Launch, grow, and succeed online, supported by AI that puts the power in your hands.</p>
-                        <p>Prices are listed without VAT</p>
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-md text-slate-600 font-medium pt-8 border-t border-slate-200">
+                        <p>© 2026 ZenexCloud. All rights reserved.</p>
+
                     </div>
 
                 </div>
