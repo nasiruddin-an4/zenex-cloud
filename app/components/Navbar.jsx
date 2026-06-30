@@ -3,12 +3,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { ArrowRight, X, Menu, User } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isTopBannerVisible, setIsTopBannerVisible] = useState(true);
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -19,11 +18,8 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Removed body scroll lock to prevent iOS Safari jump-to-top bug
-
     return (
         <>
-
             {/* Main Navbar */}
             <nav className={`w-full sticky top-0 z-50 transition-all duration-500 ${isScrolled
                 ? 'bg-white backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
@@ -68,7 +64,7 @@ const Navbar = () => {
                         </Link>
                         <Link
                             href="https://clients.zenexcloud.com/index.php?rp=/login"
-                            className="text-[14px] font-semibold text-white bg-[#0f62fe] hover:bg-blue-700 transition-colors duration-300 px-5 py-2.5 rounded-[6px]"
+                            className="text-[14px] font-semibold text-white bg-brandColor hover:bg-brandColor transition-colors duration-300 px-5 py-2.5 rounded-[6px]"
                         >
                             Login
                         </Link>
@@ -88,7 +84,7 @@ const Navbar = () => {
 
             </nav>
 
-            {/* Mobile Menu Overlay - Moved outside nav to escape stacking context */}
+            {/* Mobile Menu Overlay */}
             <div
                 className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] lg:hidden transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                     }`}
@@ -112,34 +108,33 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                <div className="flex flex-col space-y-1 text-[15px] font-medium text-gray-300 overflow-y-auto pb-6 flex-1">
+                <div className="flex flex-col text-[15px] font-medium text-gray-300 overflow-y-auto pb-6 flex-1">
                     {[
                         { href: '/hosting', label: 'Hosting' },
                         { href: '/vps', label: 'VPS' },
                         { href: '/s3-bucket', label: 'S3 Bucket' },
                         { href: '/pricing', label: 'Pricing' },
                     ].map((link) => (
-                        <Link key={link.href} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className={`transition-all py-3 px-3 rounded-lg ${pathname === link.href ? 'text-white bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>
+                        <Link key={link.href} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className={`transition-all py-4 px-2 border-b border-white/10 ${pathname === link.href ? 'text-white bg-white/5' : 'hover:text-white hover:bg-white/5'}`}>
                             {link.label}
                         </Link>
                     ))}
 
-                    <div className="!mt-8 pt-6 border-t border-white/10 space-y-5">
-                        <button className="relative flex items-center justify-center w-full py-3.5 rounded-full font-semibold text-[15px] group">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-fuchsia-500 via-purple-500 to-cyan-500 p-[1.5px]" />
-                            <div className="absolute inset-[1.5px] rounded-full bg-[#0a1e2e] transition-colors" />
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 text-white relative z-10">
-                                <path d="M12 2.5L14.5 9.5L21.5 12L14.5 14.5L12 21.5L9.5 14.5L2.5 12L9.5 9.5L12 2.5Z" fill="currentColor" />
-                            </svg>
-                            <span className="text-white relative z-10">Ask AI</span>
-                        </button>
-
-                        <div className="flex items-center justify-center px-2 pt-2">
-                            <Link href="https://clients.zenexcloud.com/index.php?rp=/login" className="flex items-center gap-2 text-white hover:text-cyan-400 transition-colors duration-300">
-                                <User className="w-[22px] h-[22px] stroke-[2.5]" />
-                                <span className="font-medium text-[15px]">Account</span>
-                            </Link>
-                        </div>
+                    <div className="!mt-8 pt-6  space-y-4">
+                        <Link
+                            href="https://clients.zenexcloud.com/register.php"
+                            className="flex items-center justify-center w-full py-3 rounded-[6px] font-semibold text-[14px] bg-white text-gray-900 hover:bg-gray-100 transition-colors duration-300"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Register
+                        </Link>
+                        <Link
+                            href="https://clients.zenexcloud.com/index.php?rp=/login"
+                            className="flex items-center justify-center w-full py-3 rounded-[6px] font-semibold text-[14px] text-white bg-brandColor hover:bg-blue-700 transition-colors duration-300"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Login
+                        </Link>
                     </div>
                 </div>
             </div>

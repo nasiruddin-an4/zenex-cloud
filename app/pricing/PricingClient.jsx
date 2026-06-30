@@ -64,7 +64,7 @@ const PricingAll = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('https://local.zenexcloud.com/api/v1/packages')
+        fetch(process.env.NEXT_PUBLIC_ALL_PACKAGES_API)
             .then(res => res.json())
             .then(data => {
                 setPackages(data);

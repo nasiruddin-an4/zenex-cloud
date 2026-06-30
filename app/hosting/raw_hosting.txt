@@ -87,7 +87,7 @@ const HostingPricing = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('https://local.zenexcloud.com/api/v1/hosting')
+        fetch('https://portal.zenexcloud.com/api/v1/hosting')
             .then(res => res.json())
             .then(data => {
                 setPlans(data);

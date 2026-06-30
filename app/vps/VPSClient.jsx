@@ -86,7 +86,7 @@ const VPSPricing = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('https://local.zenexcloud.com/api/v1/vps')
+        fetch(process.env.NEXT_PUBLIC_VPS_HOSTING_API)
             .then(res => res.json())
             .then(data => {
                 setPlans(data);
@@ -335,8 +335,8 @@ const VPSUseCases = () => {
                             <div key={index} className="bg-slate-900 p-10 md:p-14 flex flex-col items-center text-center group hover:bg-slate-800/80 transition-colors duration-300">
 
                                 {/* Icon */}
-                                <div className="w-16 h-16 rounded-2xl bg-blue-600/10 border border-blue-600/20 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:-translate-y-1">
-                                    <Icon className="w-8 h-8 text-blue-600" strokeWidth={1.5} />
+                                <div className="w-16 h-16 rounded-2xl bg-brandColor/10 border border-blue-600/20 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:-translate-y-1">
+                                    <Icon className="w-8 h-8 text-brandColor" strokeWidth={1.5} />
                                 </div>
 
                                 {/* Content */}
@@ -350,7 +350,7 @@ const VPSUseCases = () => {
                                 {/* Link */}
                                 <Link
                                     href={useCase.href}
-                                    className="mt-auto inline-flex items-center text-sm font-bold text-blue-600  hover:text-blue-500 transition-colors"
+                                    className="mt-auto inline-flex items-center text-sm font-bold text-brandColor  hover:text-brandColor transition-colors"
                                 >
                                     {useCase.link} <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
                                 </Link>

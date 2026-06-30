@@ -5,23 +5,15 @@ import { Plus, Minus } from 'lucide-react';
 const faqs = [
     {
         question: "What steps should I take to begin my hosting journey?",
-        answer: "To begin your hosting journey, simply choose a plan that fits your needs, register a domain name, and complete the checkout process. Our setup wizard will guide you through the rest of the process."
+        answer: "To begin your hosting journey, simply choose a plan that fits your needs, register a domain name, and complete the checkout process. You will get instant account details on your registered email address."
     },
     {
         question: "What is the pricing structure for your hosting services?",
-        answer: "We offer tiered pricing based on the resources you need, including shared, VPS, and dedicated hosting options. You can pay monthly or annually, with discounts available for annual commitments."
-    },
-    {
-        question: "What is the typical timeframe for setting up a hosting account?",
-        answer: "Most of our hosting accounts are provisioned instantly upon payment confirmation. Dedicated servers or custom configurations may take up to 24-48 hours."
-    },
-    {
-        question: "Is your service available to clients outside of Bangladesh?",
-        answer: "Yes, our services are available globally. We have data centers in multiple locations to ensure fast and reliable performance for clients worldwide."
+        answer: "We offer competitive and transparent pricing tailored to your hosting needs. Whether you're looking for shared hosting, VPS, or dedicated servers, we have flexible plans to fit your budget. All plans are billed in USD currency."
     },
     {
         question: "Can you assist with migrating my current website to your platform?",
-        answer: "Absolutely! We offer free website migration services for new clients. Our team of experts will handle the entire process to ensure a seamless transition with minimal downtime."
+        answer: "Yes! We offer website migration services for new clients. Our team of experts will handle the entire process to ensure a seamless transition with minimal downtime."
     },
     {
         question: "Will you continue to assist me after my website goes live?",
@@ -29,7 +21,7 @@ const faqs = [
     },
     {
         question: "Which hosting technologies do you utilize?",
-        answer: "We utilize industry-leading technologies including SSD NVMe storage, LiteSpeed web servers, cPanel/WHM, and CloudLinux to deliver superior performance, security, and reliability."
+        answer: "We utilize industry-leading technologies including SSD NVMe storage, LiteSpeed web servers, cPanel/WHM, Imunify360 Security Suite and CloudLinux to deliver superior performance, security, and reliability."
     },
     {
         question: "Are you able to connect with third-party applications or services?",
@@ -70,9 +62,8 @@ const FAQ = () => {
                                     </span>
                                 </button>
                                 <div
-                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                                        isOpen ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'
-                                    }`}
+                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'
+                                        }`}
                                 >
                                     <p className="text-slate-600 text-[15px] leading-relaxed">
                                         {faq.answer}

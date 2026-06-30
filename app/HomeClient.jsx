@@ -15,15 +15,18 @@ const typingWords = [
 
 const stats = [
     { value: '99%', label: 'Uptime SLA' },
-    { value: '10k+', label: 'Sites hosted' },
+    { value: '5k+', label: 'Sites hosted' },
     { value: '60s', label: 'Avg Deploy' },
     { value: '24/7', label: 'Support' },
 ];
+
+const badgeWords = ["AMD Epic", "NVMe Powered"];
 
 const Hero = () => {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [currentText, setCurrentText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
+    const [badgeIndex, setBadgeIndex] = useState(0);
 
     useEffect(() => {
         let timer;
@@ -52,6 +55,13 @@ const Hero = () => {
         return () => clearTimeout(timer);
     }, [currentText, isDeleting, currentWordIndex]);
 
+    useEffect(() => {
+        const badgeTimer = setInterval(() => {
+            setBadgeIndex(prev => (prev + 1) % badgeWords.length);
+        }, 3000);
+        return () => clearInterval(badgeTimer);
+    }, []);
+
     return (
         <div className="relative w-full overflow-hidden bg-brandBlack -mt-[75px]">
             {/* Background Video */}
@@ -74,9 +84,13 @@ const Hero = () => {
             <div className="relative z-10 flex flex-col items-center text-center text-white pt-36 md:pt-44 pb-16 md:pb-20 px-4 sm:px-6">
 
                 {/* NVMe Badge */}
-                <div className="inline-flex items-center space-x-2 bg-white/[0.06] border border-white/[0.12] rounded-full px-4 py-1.5 mb-8 backdrop-blur-md animate-fade-in-up">
-                    <Zap className="w-3.5 h-3.5 text-cyan-400" />
-                    <span className="text-[13px] font-bold tracking-[0.15em] text-cyan-400 uppercase">NVMe Powered</span>
+                <div className="inline-flex items-center justify-center space-x-2 bg-white/[0.06] border border-white/[0.12] rounded-full px-4 py-1.5 mb-8 backdrop-blur-md animate-fade-in-up transition-all duration-300">
+                    <Zap className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                    <div className="relative overflow-hidden w-[130px] h-[20px] flex items-center">
+                        <span key={badgeIndex} className="absolute text-[13px] font-bold tracking-[0.15em] text-cyan-400 uppercase animate-fade-in-up whitespace-nowrap">
+                            {badgeWords[badgeIndex]}
+                        </span>
+                    </div>
                 </div>
 
                 {/* Heading */}
@@ -88,7 +102,7 @@ const Hero = () => {
                 {/* Subheading */}
                 <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-normal leading-relaxed animate-fade-in-up animation-delay-200">
                     NVMe SSD servers, enterprise DDoS protection, and 24/7 expert<br className="hidden md:block" />
-                    support — starting at $1.75/mo.
+                    support — starting at $4/m
                 </p>
 
                 {/* Domain Search Bar */}
@@ -148,7 +162,7 @@ const Hero = () => {
                             </svg>
                         ))}
                     </div>
-                    <span>Trusted by <strong className="text-white font-semibold">10,000+ websites</strong> · No hidden fees · <strong className="text-white font-semibold">30-day</strong> money-back</span>
+                    <span>Trusted by <strong className="text-white font-semibold">5,000+ websites</strong> · No hidden fees · <strong className="text-white font-semibold">7-day</strong> money-back</span>
                 </div>
             </div>
         </div>
@@ -260,7 +274,6 @@ const servicesData = [
         description: "Store, manage, and deliver files at scale using S3-compatible object storage built for backups, applications, media delivery, and enterprise workloads.",
         features: [
             "S3 Compatible",
-            "CDN Ready",
             "API Access",
             "Daily Backup"
         ],
@@ -652,7 +665,7 @@ const Solutions = () => {
     const [activeTab, setActiveTab] = useState("developers");
 
     return (
-        <section className="w-full bg-[#EAF5FA] py-20 lg:py-28 font-sans overflow-hidden relative">
+        <section className="w-full bg-white py-20 lg:py-28 font-sans overflow-hidden relative">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
 
                 {/* Header Section */}
@@ -997,13 +1010,13 @@ const Migration = () => {
 
                         <div className="flex flex-col mb-12 max-w-[500px]">
                             {[
-                                "Zero risk with our 30-day money-back guarantee.",
+                                "Zero risk with our 7-day money-back guarantee.",
                                 "High performance hosting & advanced security.",
                                 "Global data centers & automated backups.",
                                 "24/7 Support"
                             ].map((item, index) => (
                                 <div key={index} className={`flex items-center gap-4 py-4 ${index !== 3 ? 'border-b border-[#D4E4EE]' : ''}`}>
-                                    <div className="flex-shrink-0 w-[22px] h-[22px] rounded bg-[#009DD9] flex items-center justify-center">
+                                    <div className="flex-shrink-0 w-[22px] h-[22px] rounded bg-brandColor flex items-center justify-center">
                                         <Check className="w-3.5 h-3.5 text-white" strokeWidth={3.5} />
                                     </div>
                                     <span className="text-slate-800 text-[15px] font-medium">{item}</span>
@@ -1029,8 +1042,8 @@ export default function HomeClient() {
             {/* <TrustedBy /> */}
             <Services />
             <Features />
-            <Benchmark />
-            <Solutions />
+            {/* <Benchmark /> */}
+            {/* <Solutions /> */}
             <GPUServers />
             <Migration />
         </div>

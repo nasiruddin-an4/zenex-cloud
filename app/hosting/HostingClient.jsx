@@ -50,7 +50,7 @@ const HostingHero = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-12 animate-fade-in-up animation-delay-300">
                         {[
                             "Instant Deployment",
-                            "NVME Storage",
+                            "NVMe Storage",
                             "99.97% Uptime",
                             "24/7 Expert Support"
                         ].map((feature, idx) => (
@@ -86,7 +86,7 @@ const HostingPricing = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('https://local.zenexcloud.com/api/v1/hosting')
+        fetch(process.env.NEXT_PUBLIC_WEB_HOSTING_API)
             .then(res => res.json())
             .then(data => {
                 setPlans(data);
@@ -222,7 +222,7 @@ const HostingComparison = () => {
                         Start Scaling Independently
                     </h2>
                     <p className="text-slate-400 font-medium text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
-                        Shared hosting works for simple websites. VPS hosting gives your applications dedicated resources, predictable performance, and complete control.
+                        Shared hosting works for  websites. VPS hosting gives your applications dedicated resources, predictable performance, and complete control.
                     </p>
                 </div>
 
@@ -246,8 +246,8 @@ const HostingComparison = () => {
                                 "Restricted Access"
                             ].map((feature, idx) => (
                                 <li key={idx} className="flex items-center space-x-3 pb-6 border-b border-slate-700/50 last:border-0 last:pb-0">
-                                    <div className="w-5 h-5 rounded bg-blue-500/20 flex items-center justify-center shrink-0">
-                                        <Check className="w-3.5 h-3.5 text-blue-400" strokeWidth={3} />
+                                    <div className="w-5 h-5 rounded bg-brandColor flex items-center justify-center shrink-0">
+                                        <Check className="w-3.5 h-3.5 text-brandColor" strokeWidth={3} />
                                     </div>
                                     <span className="text-slate-300 font-medium">{feature}</span>
                                 </li>
@@ -276,7 +276,7 @@ const HostingComparison = () => {
                                     "Consistent Performance"
                                 ].map((feature, idx) => (
                                     <li key={idx} className="flex items-center space-x-3 pb-6 border-b border-blue-800/50 last:border-0 last:pb-0">
-                                        <div className="w-5 h-5 rounded bg-blue-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                                        <div className="w-5 h-5 rounded bg-brandColor flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(59,130,246,0.5)]">
                                             <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
                                         </div>
                                         <span className="text-white font-medium">{feature}</span>
@@ -297,30 +297,28 @@ const HostingComparison = () => {
 
 
 const features = [
-    {
-        title: "Full Root Access",
-        desc: "Complete control over your server environment and software stack."
-    },
+
     {
         title: "Instant Provisioning",
         desc: "Deploy production-ready servers in under 60 seconds."
     },
     {
-        title: "Snapshot Backups",
-        desc: "Protect workloads with automated recovery points."
+        title: "Daily Backups",
+        desc: "Daily automatic backups ensure your website data is always protected and easily recoverable."
     },
     {
         title: "NVMe Storage",
-        desc: "Faster storage performance for applications and databases."
+        desc: "NVMe SSDs deliver up to 6x faster I/O performance than traditional SSDs."
     },
     {
-        title: "Dedicated Resources",
-        desc: "No noisy neighbors. No shared limitations."
+        title: "Shared Resources",
+        desc: "Perfect for small businesses and growing websites with predictable needs."
     },
     {
-        title: "API Ready",
-        desc: "Automate deployments and infrastructure management."
-    }
+        title: "LiteSpeed Web Server",
+        desc: "Lightning-fast website performance with LiteSpeed’s advanced caching and optimization technologies."
+    },
+
 ];
 
 const HostingFeatures = () => {
@@ -381,28 +379,28 @@ const useCases = [
         title: "Developers",
         desc: "Build, test, deploy, and scale applications faster.",
         link: "Explore Developer Hosting",
-        href: "#"
+        href: "/hosting"
     },
     {
         icon: Building2,
         title: "Agencies",
         desc: "Manage multiple client projects from one platform.",
         link: "Explore Agency Solutions",
-        href: "#"
+        href: "/hosting"
     },
     {
         icon: ShoppingCart,
         title: "Online Stores",
         desc: "Optimize performance for ecommerce growth.",
         link: "Explore Ecommerce VPS",
-        href: "#"
+        href: "/vps"
     },
     {
         icon: Landmark,
         title: "Enterprise",
         desc: "Run mission-critical infrastructure with confidence.",
         link: "Explore Enterprise VPS",
-        href: "#"
+        href: "/vps"
     }
 ];
 
