@@ -23,10 +23,10 @@ const Footer = () => {
                         <div>
                             <h3 className="font-bold text-[#005073] text-lg mb-6">Domain</h3>
                             <ul className="space-y-3 text-sm text-slate-600 font-medium">
-                                <li><Link href="https://clients.zenexcloud.com/cart.php?a=add&domain=register&_gl=1*1aehp46*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIxMjIxMzEkbzE0JGcxJHQxNzgyMTIyMzQ4JGo1OSRsMCRoOTgxODczMzc1" className="hover:text-black transition-colors">Domain name search</Link></li>
-                                <li><Link href="https://clients.zenexcloud.com/cart.php?a=add&domain=register&_gl=1*azpk9p*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIxMjIxMzEkbzE0JGcxJHQxNzgyMTIyOTY3JGo1NiRsMCRoOTgxODczMzc1" className="hover:text-black transition-colors">Cheap domain names</Link></li>
-                                <li><Link href="https://clients.zenexcloud.com/cart.php?a=add&domain=transfer&_gl=1*hysv9a*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIxMjIxMzEkbzE0JGcxJHQxNzgyMTIyOTk4JGoyNSRsMCRoOTgxODczMzc1" className="hover:text-black transition-colors">Domain transfer</Link></li>
-                                <li><Link href="https://clients.zenexcloud.com/index.php?rp=/domain/pricing&_gl=1*1i2p9k4*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODI4MDI3ODQkbzIwJGcxJHQxNzgyODAyODAxJGo0MyRsMCRoMTkyMTIxNTQxNg" className="hover:text-black transition-colors">Domain Price List</Link></li>
+                                <li><Link href="https://clients.zenexcloud.com/cart.php?a=add&domain=register" className="hover:text-black transition-colors">Domain name search</Link></li>
+                                <li><Link href="https://clients.zenexcloud.com/cart.php?a=add&domain=register" className="hover:text-black transition-colors">Cheap domain names</Link></li>
+                                <li><Link href="https://clients.zenexcloud.com/cart.php?a=add&domain=transfer" className="hover:text-black transition-colors">Domain transfer</Link></li>
+                                <li><Link href="https://clients.zenexcloud.com/index.php?rp=/domain/pricing" className="hover:text-black transition-colors">Domain Price List</Link></li>
                             </ul>
                         </div>
 
@@ -34,8 +34,8 @@ const Footer = () => {
                         <div>
                             <h3 className="font-bold text-[#005073] text-lg mb-6">Information</h3>
                             <ul className="space-y-3 text-sm text-slate-600 font-medium">
-                                <li><Link href="https://clients.zenexcloud.com/affiliates.php?_gl=1*op42e8*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODI4MDI3ODQkbzIwJGcxJHQxNzgyODAyODY4JGo0NCRsMCRoMTkyMTIxNTQxNg" className="hover:text-black transition-colors">Affiliate program</Link></li>
-                                <li><Link href="https://clients.zenexcloud.com/affiliates.php?_gl=1*op42e8*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODI4MDI3ODQkbzIwJGcxJHQxNzgyODAyODY4JGo0NCRsMCRoMTkyMTIxNTQxNg" className="hover:text-black transition-colors">Referral program</Link></li>
+                                <li><Link href="https://clients.zenexcloud.com/affiliates.php" className="hover:text-black transition-colors">Affiliate program</Link></li>
+                                <li><Link href="https://clients.zenexcloud.com/affiliates.php" className="hover:text-black transition-colors">Referral program</Link></li>
                             </ul>
                         </div>
 
@@ -44,7 +44,7 @@ const Footer = () => {
                             <h3 className="font-bold text-[#005073] text-lg mb-6">Company</h3>
                             <ul className="space-y-3 text-sm text-slate-600 font-medium">
                                 <li><Link href="/about" className="hover:text-black transition-colors">About Us</Link></li>
-                                <li><Link href="#" className="hover:text-black transition-colors">Our technology</Link></li>
+                                <li><Link href="/" className="hover:text-black transition-colors">Our technology</Link></li>
                             </ul>
                         </div>
 
@@ -52,8 +52,8 @@ const Footer = () => {
                         <div>
                             <h3 className="font-bold text-[#005073] text-lg mb-6">Support</h3>
                             <ul className="space-y-3 text-sm text-slate-600 font-medium">
-                                <li><Link href="https://clients.zenexcloud.com/contact.php?_gl=1*op42e8*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODI4MDI3ODQkbzIwJGcxJHQxNzgyODAyODY4JGo0NCRsMCRoMTkyMTIxNTQxNg" className="hover:text-black transition-colors">Contact us</Link></li>
-                                <li><Link href="#" className="hover:text-black transition-colors">Report abuse</Link></li>
+                                <li><Link href="https://clients.zenexcloud.com/contact.php" className="hover:text-black transition-colors">Contact us</Link></li>
+                                <li><Link href="https://clients.zenexcloud.com/contact.php" className="hover:text-black transition-colors">Report abuse</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ const Footer = () => {
                         </div>
 
                         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-700 font-medium">
-                            <Link href="#" className="hover:underline">NPRD request policy</Link>
+                            <Link href="/" className="hover:underline">NPRD request policy</Link>
                             <Link href="/privacy-policy" className="hover:underline">Privacy policy</Link>
                             <Link href="/refund-policy" className="hover:underline">Refund policy</Link>
                             <Link href="/terms-of-service" className="hover:underline">Terms of service</Link>

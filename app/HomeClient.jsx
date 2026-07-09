@@ -7,10 +7,10 @@ import { Zap, Search, ArrowRight, Globe, Server, Database, Cpu, ArrowUpRight, Sh
 
 const typingWords = [
     "Search the \"Domain\" you want",
-    "www.yourdomain.com",
-    "www.yourdomain.net",
-    "www.yourdomain.io",
-    "www.yourdomain.ai",
+    "www.zenexcloud.com",
+    "www.zenexcloud.net",
+    "www.zenexcloud.io",
+    "www.zenexcloud.ai",
 ];
 
 const stats = [
@@ -112,7 +112,7 @@ const Hero = () => {
                         onSubmit={(e) => {
                             e.preventDefault();
                             const domainValue = e.target.domainSearch.value;
-                            const baseUrl = "https://clients.zenexcloud.com/cart.php?a=add&domain=register&_gl=1*wlubiy*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODA4OTY3ODYkbzMkZzEkdDE3ODA4OTgzMTMkajYwJGwwJGg0ODYyMTE2NTE.";
+                            const baseUrl = "https://clients.zenexcloud.com/cart.php?a=add&domain=register";
                             if (domainValue) {
                                 window.location.href = `${baseUrl}&query=${encodeURIComponent(domainValue)}`;
                             } else {
@@ -242,6 +242,8 @@ const servicesData = [
         title: "Hosting",
         icon: Globe,
         description: "Launch websites and business applications with optimized hosting powered by NVMe storage, LiteSpeed technology, enterprise-grade security, and automated backups.",
+        aeoQuestion: "What is NVMe Web Hosting?",
+        aeoAnswer: "NVMe web hosting utilizes Non-Volatile Memory Express storage to deliver up to 6x faster read/write speeds than traditional SSDs. This means your websites load instantly, handle more concurrent traffic seamlessly, and rank better on search engines.",
         features: [
             "cPanel Hosting",
             "Wordpress Optimized",
@@ -257,6 +259,8 @@ const servicesData = [
         title: "VPS",
         icon: Server,
         description: "Deploy Linux or Windows virtual servers with full root access, guaranteed resources, high-performance NVMe storage, and instant scalability.",
+        aeoQuestion: "What is VPS Hosting and why does it matter?",
+        aeoAnswer: "A Virtual Private Server (VPS) gives you dedicated CPU and RAM resources that aren't shared with other users. It provides the control of a dedicated server at a fraction of the cost, making it ideal for scaling applications, databases, and high-traffic sites.",
         features: [
             "Linux VPS",
             "Windows VPS",
@@ -272,6 +276,8 @@ const servicesData = [
         title: "S3 Bucket",
         icon: Database,
         description: "Store, manage, and deliver files at scale using S3-compatible object storage built for backups, applications, media delivery, and enterprise workloads.",
+        aeoQuestion: "What is S3 Compatible Object Storage?",
+        aeoAnswer: "S3 storage is a scalable cloud architecture designed to manage unstructured data like images, videos, and backups. It allows developers to use standard Amazon S3 API protocols to securely store and retrieve any amount of data from anywhere.",
         features: [
             "S3 Compatible",
             "API Access",
@@ -286,6 +292,8 @@ const servicesData = [
         title: "GPU Server",
         icon: Cpu,
         description: "Accelerate machine learning, AI model training, rendering, simulations, and compute-intensive workloads using dedicated NVIDIA GPU infrastructure.",
+        aeoQuestion: "What is GPU Hosting used for?",
+        aeoAnswer: "GPU servers provide massive parallel processing power essential for AI/LLM model training, 3D rendering, and data science workloads. They dramatically reduce compute times for complex tasks compared to standard CPU infrastructure.",
         features: [
             "NVIDIA GPU",
             "AI Training Ready",
@@ -360,9 +368,18 @@ const Services = () => {
                                         </div>
                                     </div>
 
-                                    <p className="text-slate-800 font-medium text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
+                                    <p className="text-slate-800 font-medium text-base md:text-lg leading-relaxed mb-6 max-w-2xl">
                                         {service.description}
                                     </p>
+
+                                    {service.aeoQuestion && (
+                                        <div className="bg-slate-50 p-5 rounded-xl border border-slate-100 mb-8 max-w-2xl">
+                                            <p className="text-[14.5px] text-slate-700 leading-relaxed font-medium m-0">
+                                                <strong className="text-slate-900 block mb-1">{service.aeoQuestion}</strong>
+                                                {service.aeoAnswer}
+                                            </p>
+                                        </div>
+                                    )}
 
                                     <div className="flex justify-between items-end mt-auto">
                                         <div className="flex flex-wrap gap-3 max-w-[85%]">

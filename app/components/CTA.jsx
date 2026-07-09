@@ -19,7 +19,7 @@ const CTA = () => {
                             Start from <span className="text-white font-bold">$4/mo</span>. Deploy in <span className="text-white font-bold">60 seconds</span>. Cancel anytime.
                         </p>
 
-                        <a href="https://clients.zenexcloud.com/index.php?rp=/store/web-hosting/zenbasic&_gl=1*lkouc4*_gcl_au*ODM4NjY2MzkxLjE3ODAzODEzNzA.*_ga*MTAxMTMxNDA5Ni4xNzgwMzgxMzcx*_ga_4L9HZTSD0D*czE3ODIxMjU1NjckbzE1JGcxJHQxNzgyMTI1NTY5JGo1OCRsMCRoNDg3MjQxOTkx" className="bg-[#00AEEF] hover:bg-[#009DD9] text-white px-7 py-3 rounded-full font-bold text-sm flex items-center gap-2 transition-all shadow-lg hover:shadow-[#00AEEF]/40 group">
+                        <a href="https://clients.zenexcloud.com/index.php?rp=/store/web-hosting/zenbasic" className="bg-[#00AEEF] hover:bg-[#009DD9] text-white px-7 py-3 rounded-full font-bold text-sm flex items-center gap-2 transition-all shadow-lg hover:shadow-[#00AEEF]/40 group">
                             Start Hosting
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </a>

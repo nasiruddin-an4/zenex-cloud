@@ -112,6 +112,33 @@ const HostingPricing = () => {
 
     return (
         <section className="w-full bg-gray-50 py-20 px-4 md:px-8 font-sans">
+            {plans.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "ItemList",
+                            "itemListElement": plans.map((plan, index) => ({
+                                "@type": "ListItem",
+                                "position": index + 1,
+                                "item": {
+                                    "@type": "Product",
+                                    "name": plan.name || plan.package_name,
+                                    "description": plan.description,
+                                    "offers": {
+                                        "@type": "Offer",
+                                        "price": plan.price,
+                                        "priceCurrency": "USD",
+                                        "availability": "https://schema.org/InStock",
+                                        "url": plan.url || "https://clients.zenexcloud.com"
+                                    }
+                                }
+                            }))
+                        })
+                    }}
+                />
+            )}
             <div className="max-w-7xl mx-auto">
 
                 {/* Header Section */}

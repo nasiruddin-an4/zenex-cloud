@@ -112,6 +112,33 @@ const VPSPricing = () => {
 
     return (
         <section id="vps-pricing" className="w-full bg-gradient-to-b from-white to-[#e8f6ff] py-20 px-4 ">
+            {plans.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "ItemList",
+                            "itemListElement": plans.map((plan, index) => ({
+                                "@type": "ListItem",
+                                "position": index + 1,
+                                "item": {
+                                    "@type": "Product",
+                                    "name": plan.name || plan.package_name,
+                                    "description": plan.description,
+                                    "offers": {
+                                        "@type": "Offer",
+                                        "price": plan.price,
+                                        "priceCurrency": "USD",
+                                        "availability": "https://schema.org/InStock",
+                                        "url": plan.url || "https://clients.zenexcloud.com"
+                                    }
+                                }
+                            }))
+                        })
+                    }}
+                />
+            )}
             <div className="max-w-7xl mx-auto">
 
                 {/* Header Section */}

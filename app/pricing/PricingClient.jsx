@@ -131,6 +131,33 @@ const PricingAll = () => {
 
     return (
         <section className="w-full bg-gray-50 py-20 px-4">
+            {filteredPackages.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "ItemList",
+                            "itemListElement": filteredPackages.map((pkg, index) => ({
+                                "@type": "ListItem",
+                                "position": index + 1,
+                                "item": {
+                                    "@type": "Product",
+                                    "name": pkg.name || pkg.package_name,
+                                    "description": pkg.short_description || "",
+                                    "offers": {
+                                        "@type": "Offer",
+                                        "price": pkg.price,
+                                        "priceCurrency": "USD",
+                                        "availability": "https://schema.org/InStock",
+                                        "url": `https://clients.zenexcloud.com/index.php?rp=/store/${pkg.slug}`
+                                    }
+                                }
+                            }))
+                        })
+                    }}
+                />
+            )}
             <div className="max-w-7xl mx-auto">
 
                 {/* Category Filter */}
